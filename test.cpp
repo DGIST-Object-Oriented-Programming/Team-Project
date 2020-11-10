@@ -39,14 +39,14 @@ void Test::TodayResult() {
 			ExpGrad = "F";
 
 		std::cout << "D-" << dayNum << ". 내일이 기말고사입니다!" << std::endl; //날짜 출력
-		std::cout << "당신의 현재 Level은 " << "--레벨 어디서 받죠--" << "입니다." << std::endl; //레벨 출력
-		std::cout << "당신의 성취도는 " << "--성취도 어디서 받죠--" << "입니다." << std::endl; //성취도 출력
-		std::cout << "--과목--" << " 시험의 예상되는 학점은 " << ExpGrad << "입니다." << std::endl; // 예상 학점 출력
+		std::cout << "당신의 현재 Level은 " << 레벨 << "입니다." << std::endl; //레벨 출력
+		std::cout << 과목 << " 과목에서 당신의 성취도는 " << 성취도 << "입니다." << std::endl; //성취도 출력
+		std::cout << 과목 << " 시험의 예상되는 학점은 " << ExpGrad << "입니다." << std::endl; // 예상 학점 출력
 	}
 	else {
 		std::cout << "D-" << dayNum << std::endl; //날짜 출력
-		std::cout << "당신의 현재 Level은 " << "--레벨 어디서 받죠--" << "입니다." << std::endl; //레벨 출력
-		std::cout << "당신의 성취도는 " << "--성취도 어디서 받죠--" << "입니다." << std::endl; //성취도 출력
+		std::cout << "당신의 현재 Level은 " << 레벨 << "입니다." << std::endl; //레벨 출력
+		std::cout << 과목 << " 과목에서 당신의 성취도는 " << 성취도 << "입니다." << std::endl; //성취도 출력
 	}
 }
 
