@@ -10,11 +10,6 @@
 #include<string>
 #endif //!ISTRING
 
-#ifndef ALGORITHM
-#define ALGORITHM
-#include<algorithm>
-#endif //!ALGORITHM
-
 #ifndef SUBJECT
 #define SUBJECT
 
