@@ -3,15 +3,15 @@
 #include "subject.h"
 
 #ifndef DAY
-class Day : public Subject {
-private:
+class Day : public Subject, Person{
+protected:
 	int leftday;
-
+	float effSleep;
 public:
-	void Study();
-	void Study(Subject&); //한과목만 공부, 8시간
-	void Study(int, Subject&);
-	void Study(float, Subject&);
+	Day(int);
+	void Study(Subject&, Person&); //한과목만 공부, 8시간
+	void Study(int, Subject&, Person&);
+	void Study(float, Subject&, Person&);
 
 	void Sleep();
 	void Sleep(int);
