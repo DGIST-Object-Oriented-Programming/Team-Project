@@ -39,8 +39,6 @@ protected:
 
 	float GetAchievement() { return Achievement; }// 성취도 접근 함수
 	void SetAchievement(float); // 성취도 설정 함수, 성취도는 경우에 따라 +도, -도 될 수 있다.
-	
-	std::string GetSubName() { return subject; } //과목명 접근 함수
 
 	void StudyEffJudge(); //공부시간 대비 성취도를 판단해서 공부를 얼마나 효율적으로 했는 지 알 수 있습니다.
 						  //코드 짜다보니 있으면 좋을 것 같아서 추가해봤습니다!
