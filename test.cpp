@@ -10,7 +10,7 @@
 #include "subject.h"
 #include "person.h"
 
-void Test::TodayResult() {
+void Test::TodayResult(Subject& _sub) {
 	int dayNum = 15 - leftday; //공부 시작부터 몇일인지 카운트, 원래 14일인데 첫날이 D-1이고 마지막 날이 D-14라서 15-leftday
 	if (dayNum == 14) { //기말고사 전날일 때
 		std::string ExpGrad; //예상 학점
