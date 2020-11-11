@@ -6,13 +6,15 @@
 
 #include<iostream>
 #include "test.h"
+#include "day.h"
+#include "subject.h"
+#include "person.h"
 
-
-void Test::TodayResult() {
+void Test::TodayResult(Subject& _sub, Person& _person) {
 	int dayNum = 15 - leftday; //공부 시작부터 몇일인지 카운트, 원래 14일인데 첫날이 D-1이고 마지막 날이 D-14라서 15-leftday
 	if (dayNum == 14) { //기말고사 전날일 때
 		std::string ExpGrad; //예상 학점
-		int ExpScore = 100 * 성취도 / 최대 성취도; //예상 점수, 아래 조건문들을 통해 학점으로 변환
+		float ExpScore = 100 * _sub.GetAchievement() / 최대 성취도; //예상 점수, 아래 조건문들을 통해 학점으로 변환
 		if ( ExpScore >= 97 )
 			ExpGrad = "A+";
 		else if ( 97 > ExpScore >= 94 )
@@ -42,19 +44,19 @@ void Test::TodayResult() {
 
 		std::cout << "D-" << dayNum << ". 내일이 기말고사입니다!" << std::endl; //날짜 출력
 		std::cout << "당신의 현재 Level은 " << 레벨 << "입니다." << std::endl; //레벨 출력
-		std::cout << 과목 << " 과목에서 당신의 성취도는 " << 성취도 << "입니다." << std::endl; //성취도 출력
-		std::cout << 과목 << " 시험의 예상되는 학점은 " << ExpGrad << "입니다." << std::endl; // 예상 학점 출력
+		std::cout << 과목명 << " 과목에서 당신의 성취도는 " << GetAchievement() << "입니다." << std::endl; //성취도 출력
+		std::cout << 과목명 << " 시험의 예상되는 학점은 " << ExpGrad << "입니다." << std::endl; // 예상 학점 출력
 	}
 	else {
 		std::cout << "D-" << dayNum << std::endl; //날짜 출력
 		std::cout << "당신의 현재 Level은 " << 레벨 << "입니다." << std::endl; //레벨 출력
-		std::cout << 과목 << " 과목에서 당신의 성취도는 " << 성취도 << "입니다." << std::endl; //성취도 출력
+		std::cout << 과목 << " 과목에서 당신의 성취도는 " << GetAchievement() << "입니다." << std::endl; //성취도 출력
 	}
 }
 
 
-void Test::AfterTest() {
-	int ExpScore = 100 * 성취도 / 최대 성취도; // 성취도 기반 예상 점수
+void Test::AfterTest(Subject, int score) {
+	float ExpScore = 100 * GetAchievement() / 최대 성취도; // 성취도 기반 예상 점수
 	if ( score < ExpScore && ( ExpScore - score ) / score > 일정 수치 ) { //성취도 > 시험 점수 && 오차가 일정 이상일 때 =>본인의 과대평가
 		std::cout << Subject << "과목에 대해 당신은 당신 스스로를 과대평가하고 있군요! 본인의 수준을 깨닫고, 보다 현실적인 목표를 잡아보세요!" << std::endl;
 	}
