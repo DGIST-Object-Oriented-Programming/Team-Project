@@ -55,7 +55,7 @@ void Test::TodayResult(Subject& _sub) {
 }
 
 
-void Test::AfterTest(Subject, int score) {
+void Test::AfterTest(Subject& _sub, int score) {
 	float ExpScore = 100 * GetAchievement() / 최대 성취도; // 성취도 기반 예상 점수
 	if ( score < ExpScore && ( ExpScore - score ) / score > 일정 수치 ) { //성취도 > 시험 점수 && 오차가 일정 이상일 때 =>본인의 과대평가
 		std::cout << Subject << "과목에 대해 당신은 당신 스스로를 과대평가하고 있군요! 본인의 수준을 깨닫고, 보다 현실적인 목표를 잡아보세요!" << std::endl;
