@@ -12,9 +12,11 @@
 void Test::TodayResult(Subject& _sub, Person& _person) {
 	int leftday = Person::getleftday()
 	int dayNum = 15 - leftday; //공부 시작부터 몇일인지 카운트, 원래 14일인데 첫날이 D-1이고 마지막 날이 D-14라서 15-_person.leftday
+	float achievement = Subject::GetAchievement();
+	std::string name = Subject::GetSubName();
 	if (dayNum == 14) { //기말고사 전날일 때
 		std::string ExpGrad; //예상 학점
-		float ExpScore = 10 * _sub.GetAchievement(); //예상 점수, 아래 조건문들을 통해 학점으로 변환, 원래 식은 100*_sub.GetAchievement()/10
+		float ExpScore = 10 * achievement; //예상 점수, 아래 조건문들을 통해 학점으로 변환, 원래 식은 100*_sub.GetAchievement()/10
 		if (ExpScore >= 97) { ExpGrad = "A+"; }
 		else if (97 > ExpScore && ExpScore >= 94) {   ExpGrad = "A0"; }
 		else if (94 > ExpScore && ExpScore >= 90) {   ExpGrad = "A-"; }
@@ -31,33 +33,35 @@ void Test::TodayResult(Subject& _sub, Person& _person) {
 
 		std::cout << "D-" << dayNum << ". 내일이 기말고사입니다!" << std::endl; //날짜 출력
 		std::cout << "당신의 현재 Level은 " << _person.level << "입니다." << std::endl; //레벨 출력
-		std::cout << _sub.GetSubName() << " 과목에서 당신의 성취도는 " << _sub.GetAchievement() << "입니다." << std::endl; //성취도 출력
-		std::cout << _sub.GetSubName() << " 시험의 예상되는 학점은 " << ExpGrad << "입니다." << std::endl; // 예상 학점 출력
+		std::cout << name << " 과목에서 당신의 성취도는 " << achievement << "입니다." << std::endl; //성취도 출력
+		std::cout << name << " 시험의 예상되는 학점은 " << ExpGrad << "입니다." << std::endl; // 예상 학점 출력
 	}
 	else {
 		std::cout << "D-" << dayNum << std::endl; //날짜 출력
 		std::cout << "당신의 현재 Level은 " << _person.level << "입니다." << std::endl; //레벨 출력
-		std::cout << _sub.GetSubName() << " 과목에서 당신의 성취도는 " << GetAchievement() << "입니다." << std::endl; //성취도 출력
+		std::cout << name << " 과목에서 당신의 성취도는 " << achievement << "입니다." << std::endl; //성취도 출력
 	}
 	std::cout << "--------------------------------------------------------" << std::endl;
 }
 
 
 void Test::AfterTest(Subject& _sub, int score) {
-	float ExpScore = 10 * GetAchievement(); // 성취도 기반 예상 점수
+	float achievement = Subject::GetAchievement();
+	std::string name = Subject::GetSubName();
+	float ExpScore = 10 * achievement; // 성취도 기반 예상 점수
 	if ( score < ExpScore && ( ExpScore - score ) / score > 0.3 ) { //성취도 > 시험 점수 && 오차가 일정 이상일 때(임의로 30%로 설정) =>본인의 과대평가
 		std::cout << "직접 입력해주신 효율로 계산된 성취도 " << ExpScore << "에 비해 겨우 " << score << "만큼만 점수를 받으셨군요." << std::endl;
-		std::cout << _sub.GetSubName() << " 과목에 대해 당신은 당신 스스로를 과대평가하고 있군요!" << std::endl;
+		std::cout << name << " 과목에 대해 당신은 당신 스스로를 과대평가하고 있군요!" << std::endl;
 		std::cout << "본인의 수준을 깨닫고, 보다 현실적인 목표를 잡아보세요!" << std::endl;
 	}
 	else if ( score > ExpScore && ( score - ExpScore ) / score > 0.3 ) { //성취도 < 시험 점수 && 오차가 일정 이상일 때(임의로 30%로 설정) =>본인의 과소평가
 		std::cout << "직접 입력해주신 효율로 계산된 성취도 " << ExpScore << "에 비해 무려 " << score << "만큼이나 점수를 받으셨군요." << std::endl;
-		std::cout << _sub.GetSubName() << " 과목에 대해 당신은 당신 스스로를 과소평가하고 있군요!" << std::endl;
+		std::cout << name << " 과목에 대해 당신은 당신 스스로를 과소평가하고 있군요!" << std::endl;
 		std::cout << "자신감을 갖고, 보다 높은 목표를 잡아보세요!" << std::endl;
 	}
 	else //너 스스로를 알라 실천 잘한 사람
 		std::cout << "직접 입력해주신 효율로 계산된 성취도 " << ExpScore << "와 비슷한 " << score << "의 점수를 받으셨군요." << std::endl;
-		std::cout << _sub.GetSubName() << " 과목에 대해 성취도에 맞는 점수를 얻으셨군요!" << std::endl;
+		std::cout << name << " 과목에 대해 성취도에 맞는 점수를 얻으셨군요!" << std::endl;
 		std::cout << "스스로의 능력을 잘 아는 것 역시 아주 좋습니다! 이 자세를 유지하고 열심히 노력하세요!" << std::endl;
 	std::cout << "--------------------------------------------------------" << std::endl;
 }
