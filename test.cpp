@@ -14,45 +14,19 @@ void Test::TodayResult(Subject& _sub, Person& _person) {
 	if (dayNum == 14) { //기말고사 전날일 때
 		std::string ExpGrad; //예상 학점
 		float ExpScore = 10 * _sub.GetAchievement(); //예상 점수, 아래 조건문들을 통해 학점으로 변환, 원래 식은 100*_sub.GetAchievement()/10
-		if (ExpScore >= 97) {
-		    ExpGrad = "A+";
-		 }
-	      else if (97 > ExpScore && ExpScore >= 94) {
-		 ExpGrad = "A0";
-	      }
-	      else if (94 > ExpScore && ExpScore >= 90) {
-		 ExpGrad = "A-";
-	      }
-	      else if (90 > ExpScore && ExpScore >= 87) {
-		 ExpGrad = "B+";
-	      }
-	      else if (87 > ExpScore && ExpScore >= 84) {
-		 ExpGrad = "B0";
-	      }
-	      else if (84 > ExpScore && ExpScore >= 80) {
-		 ExpGrad = "B-";
-	      }
-	      else if (80 > ExpScore && ExpScore >= 77) {
-		 ExpGrad = "C+";
-	      }
-	      else if (77 > ExpScore && ExpScore >= 74) {
-		 ExpGrad = "C0";
-	      }
-	      else if (74 > ExpScore && ExpScore >= 70) {
-		 ExpGrad = "C-";
-	      }
-	      else if (70 > ExpScore && ExpScore >= 67) {
-		 ExpGrad = "D+";
-	      }
-	      else if (67 > ExpScore && ExpScore >= 64) {
-		 ExpGrad = "D0";
-	      }
-	      else if (64 > ExpScore && ExpScore >= 60) {
-		 ExpGrad = "D-";
-	      }
-	      else {
-		 ExpGrad = "F";
-	      }
+		if (ExpScore >= 97) { ExpGrad = "A+"; }
+		else if (97 > ExpScore && ExpScore >= 94) {   ExpGrad = "A0"; }
+		else if (94 > ExpScore && ExpScore >= 90) {   ExpGrad = "A-"; }
+		else if (90 > ExpScore && ExpScore >= 87) {   ExpGrad = "B+"; }
+		else if (87 > ExpScore && ExpScore >= 84) { ExpGrad = "B0"; }
+		else if (84 > ExpScore && ExpScore >= 80) { ExpGrad = "B-"; }
+		else if (80 > ExpScore && ExpScore >= 77) {   ExpGrad = "C+"; }
+		else if (77 > ExpScore && ExpScore >= 74) {   ExpGrad = "C0"; }
+		else if (74 > ExpScore && ExpScore >= 70) {   ExpGrad = "C-"; }
+		else if (70 > ExpScore && ExpScore >= 67) {   ExpGrad = "D+"; }
+		else if (67 > ExpScore && ExpScore >= 64) {   ExpGrad = "D0"; }
+		else if (64 > ExpScore && ExpScore >= 60) {   ExpGrad = "D-"; }
+		else { ExpGrad = "F"; }
 
 		std::cout << "D-" << dayNum << ". 내일이 기말고사입니다!" << std::endl; //날짜 출력
 		std::cout << "당신의 현재 Level은 " << _person.level << "입니다." << std::endl; //레벨 출력
