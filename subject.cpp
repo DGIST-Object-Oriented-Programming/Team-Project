@@ -4,6 +4,7 @@ Subject::Subject() {
 	eff = 0.25;
 	TotalStudy = 0;
 	Achievement = 0;
+	subject = std::string("");
 }//과목 이름을 생성자로 받지 않는 경우는 없음
 
 Subject::Subject(std::string Sub) {//과목 이름을 생성자로 받는 경우
