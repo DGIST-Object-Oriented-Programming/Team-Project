@@ -38,6 +38,7 @@ void Test::TodayResult(Subject& _sub, Person& _person) {
 		std::cout << "당신의 현재 Level은 " << _person.level << "입니다." << std::endl; //레벨 출력
 		std::cout << 과목명 << " 과목에서 당신의 성취도는 " << GetAchievement() << "입니다." << std::endl; //성취도 출력
 	}
+	std::cout << "--------------------------------------------------------" << std::endl;
 }
 
 
@@ -51,6 +52,7 @@ void Test::AfterTest(Subject& _sub, int score) {
 	}
 	else //너 스스로를 알라
 		std::cout << 과목명 << " 과목에 대해 성취도에 맞는 점수를 얻으셨군요! 스스로를 아는 것 역시 아주 좋은 자세입니다! 이 자세를 유지하고 열심히 노력하세요!" << std::endl;
+	std::cout << "--------------------------------------------------------" << std::endl;
 }
 
 /////////////////////////////////////////////////////////////////
