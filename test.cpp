@@ -11,7 +11,7 @@
 #include "person.h"
 
 void Test::TodayResult(Subject& _sub, Person& _person) {
-	int dayNum = 15 - leftday; //공부 시작부터 몇일인지 카운트, 원래 14일인데 첫날이 D-1이고 마지막 날이 D-14라서 15-leftday
+	int dayNum = 15 - _person.leftday; //공부 시작부터 몇일인지 카운트, 원래 14일인데 첫날이 D-1이고 마지막 날이 D-14라서 15-leftday
 	if (dayNum == 14) { //기말고사 전날일 때
 		std::string ExpGrad; //예상 학점
 		float ExpScore = 100 * _sub.GetAchievement() / 최대 성취도; //예상 점수, 아래 조건문들을 통해 학점으로 변환
