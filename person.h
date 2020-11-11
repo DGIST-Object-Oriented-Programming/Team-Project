@@ -7,20 +7,28 @@
 
 class Person : public  Day, Test {
 private:
-	std::string name; // ì°¸ì—¬ì ì´ë¦„
-	int personID;  // ì°¸ì—¬ì í•™ë²ˆ
-	int level = 0;  // ì°¸ì—¬ìì˜ ë ˆë²¨
-	int leftday = 0; // ë‚¨ì€ ìš”ì¼
-	int sleep_eff = 0; // ì°¸ì—¬ìì˜ ìˆ˜ë©´íš¨ìœ¨?
-public:
-	Person(int); //ì¸ìë¡œ ë°›ì€ intê°’ìœ¼ë¡œ dayì˜ leftday ì´ˆê¸°í™”
-	virtual ~Person();
+	std::string name; // Âü¿©ÀÚ ÀÌ¸§
+	int personID;  // Âü¿©ÀÚ ÇĞ¹ø
+	int level = 0;  // Âü¿©ÀÚÀÇ ·¹º§
+	int leftday = 0; // ³²Àº ¿äÀÏ
+	int sleep_eff = 0; // Âü¿©ÀÚÀÇ ¼ö¸éÈ¿À²?
+	float total_achive;//ÃÑ ¼ºÃëµµ ÇÕ ÀúÀå
 
-	// ê·¸ëƒ¥ get+ ì›í•˜ëŠ”ê±°
+public:
+	Person(int); //ÀÎÀÚ·Î ¹ŞÀº int°ªÀ¸·Î dayÀÇ leftday ÃÊ±âÈ­
+	virtual ~Person();
+	void changeLevel(int);
+	void changeLeftday();
+	void changeSleepEff(int);
+
+	// ±×³É get+ ¿øÇÏ´Â°Å
 	int getID();
 	int getlevel();
 	int getleftday();
 	int getsleep_eff();
+	int gettotal_achive();
+
+	int changeTotalAchive(int);//ÃÑ ¼ºÃëµµ °ª º¯°æ
 	std::string getname();
 
 	Subject* subjects;

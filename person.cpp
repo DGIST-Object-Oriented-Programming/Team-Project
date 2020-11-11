@@ -6,7 +6,7 @@ void setdaylist() {
 	int subject_num;
 	std::cout << "How many subjects do u have, today? : "; std::cin >> subject_num; std::cout << std::endl;
 
-	// ê³¼ëª© ì €ì¥
+	// °ú¸ñ ÀúÀå
 	Subject* subjects = new Subject[subject_num];
 
 	std::string subs_name;
@@ -17,7 +17,7 @@ void setdaylist() {
 		std::cout << "Enter your Subject name : "; std::cin >> subs_name; std::cout << std::endl;
 		std::cout << "Enter your Subject's efficient : "; std::cin >> subs_eff; std::cout << std::endl;
 
-		/* ì´ê±° í•´ì¤„ í•¨ìˆ˜ê°€ í•„ìš”
+		/* ÀÌ°Å ÇØÁÙ ÇÔ¼ö°¡ ÇÊ¿ä
 		subjects[i].subject = subs_name;
 		subjects[i].eff = subs_eff;
 		*/
@@ -27,26 +27,26 @@ void setdaylist() {
 
 
 Person::Person(int a) {
-	std::cout << "Enter your name : "; // ì´ë¦„
+	std::cout << "Enter your name : "; // ÀÌ¸§
 	std::cin >> name;
 	std::cout << std::endl;
-	std::cout << "Enter your Student Number : "; // í•™ë²ˆ
+	std::cout << "Enter your Student Number : "; // ÇĞ¹ø
 	std::cin >> personID;
 	std::cout << std::endl;
-	std::cout << "Enter your sleep efficient : "; std::cin >> sleep_eff; std::cout << std::endl; // ìˆ˜ë©´íš¨ìœ¨
+	std::cout << "Enter your sleep efficient : "; std::cin >> sleep_eff; std::cout << std::endl; // ¼ö¸éÈ¿À²
 	std::cout << "Hello " << name << "!, your current level is " << level << "." << std::endl;
 
-	leftday = a; // ë‚¨ì€ ìš”ì¼
+	leftday = a; // ³²Àº ¿äÀÏ
 
-	// í…ŒìŠ¤íŠ¸ ì½”ë“œ ìë™ ì‹¤í–‰
+	// Å×½ºÆ® ÄÚµå ÀÚµ¿ ½ÇÇà
 	while (leftday != 0) {
-		setdaylist(); // ê³¼ëª© ë¦¬ìŠ¤íŠ¸ë¥¼ ë°›ìŒ, ê³¼ëª©ë“¤ì´ ìƒì„±ë¨
-		TodayResult(); // í‰ê°€ë¥¼ ì§„í–‰
-		delete[] subjects; // í‰ê°€ í›„ ê³¼ëª© ì‚­ì œ, ë‹¤ìŒë‚  ë‹¤ì‹œ ìƒì„±
+		setdaylist(); // °ú¸ñ ¸®½ºÆ®¸¦ ¹ŞÀ½, °ú¸ñµéÀÌ »ı¼ºµÊ
+		TodayResult(); // Æò°¡¸¦ ÁøÇà
+		delete[] subjects; // Æò°¡ ÈÄ °ú¸ñ »èÁ¦, ´ÙÀ½³¯ ´Ù½Ã »ı¼º
 		leftday--;
 	}
 
-	// ë§ˆì§€ë§‰ ë‚ ìš© ê²°ê³¼ë¬¸ ë³´ì—¬ì£¼ê¸°
+	// ¸¶Áö¸· ³¯¿ë °á°ú¹® º¸¿©ÁÖ±â
 	TodayResult();
 
 }
@@ -55,7 +55,7 @@ Person::Person(int a) {
 
 Person::~Person() {
 
-	// ì‹œí—˜ì´ ëë‚œ í›„ í‰ê°€
+	// ½ÃÇèÀÌ ³¡³­ ÈÄ Æò°¡
 	int temp;
 	std::cout << "Do you want to evaluate your exam result?" << std::endl;
 	std::cout << "1. Yes     2. No";	std::cin >> temp;	std::cout << std::endl;
@@ -66,18 +66,23 @@ Person::~Person() {
 		std::cout << "ByeBye " << name << std::endl;
 	}
 
-	// ì§€ì›Œì¤˜ì•¼í•  ë†ˆë“¤ ì§€ì›Œì£¼ê¸°
+	// Áö¿öÁà¾ßÇÒ ³ğµé Áö¿öÁÖ±â
 	delete[] subjects;
-	std::cout << "Thank you for using our program. Bye "<< name << std::endl;
+	std::cout << "Thank you for using our program. Bye " << name << std::endl;
 }
 
+int Person::changeTotalAchive(int _achive) { total_achive += _achive; }//¼ºÃëµµ ´õÇØÁÖ±â
+
+//º¯¼ö ¹Ù²Ù±â
+void Person::changeLevel(int _num) { level = _num; }
+void Person::changeLeftday() { leftday = -1; }
+void Person::changeSleepEff(int _num) { sleep_eff = _num; }
 
 
-// ë³€ìˆ˜ ê°€ì ¸ì˜¤ê¸°
+// º¯¼ö °¡Á®¿À±â
 int Person::getID() { return personID; }
 int Person::getlevel() { return level; }
 int Person::getleftday() { return leftday; }
 int Person::getsleep_eff() { return sleep_eff; }
-std::string Person::getname() {	return name; }
-
-
+std::string Person::getname() { return name; }
+int Person::gettotal_achive() { return total_achive; }

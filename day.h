@@ -3,7 +3,7 @@
 #include "subject.h"
 
 #ifndef DAY
-class Day : public Subject, Person{
+class Day{
 public:
 	Day();
 	Day(int, Person&);
