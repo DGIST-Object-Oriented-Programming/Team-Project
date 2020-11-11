@@ -2,6 +2,7 @@
 #include<iostream>
 
 #ifndef TEST
+#define TEST
 
 class Test {
 	void TodayResult();
