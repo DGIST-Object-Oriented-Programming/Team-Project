@@ -72,10 +72,12 @@ Person::~Person() {
 }
 
 
-// 만드는 
-void Person::returninfo(std::string str) {
-	if (str == "level") {
 
-	}
-	else if 
-}
+// 변수 가져오기
+int Person::getID() { return personID; }
+int Person::getlevel() { return level; }
+int Person::getleftday() { return leftday; }
+int Person::getsleep_eff() { return sleep_eff; }
+std::string Person::getname() {	return name; }
+
+
