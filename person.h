@@ -2,19 +2,28 @@
 #include<iostream>
 #include "day.h"
 #include "test.h"
-#ifndef PERSON
 
+#ifndef PERSON
 
 class Person : public  Day, Test {
 private:
-	std::string name; // Âü¿©ÀÚ ÀÌ¸§
-	int personID;  // Âü¿©ÀÚ ÇĞ¹ø
-	int level = 0;  // Âü¿©ÀÚÀÇ ·¹º§
+	std::string name; // ì°¸ì—¬ì ì´ë¦„
+	int personID;  // ì°¸ì—¬ì í•™ë²ˆ
+	int level = 0;  // ì°¸ì—¬ìì˜ ë ˆë²¨
+	int leftday = 0; // ë‚¨ì€ ìš”ì¼
+	int sleep_eff = 0; // ì°¸ì—¬ìì˜ ìˆ˜ë©´íš¨ìœ¨?
 public:
-	Person(int); //ÀÎÀÚ·Î ¹ŞÀº int°ªÀ¸·Î dayÀÇ leftday ÃÊ±âÈ­
-	~Person();
+	Person(int); //ì¸ìë¡œ ë°›ì€ intê°’ìœ¼ë¡œ dayì˜ leftday ì´ˆê¸°í™”
+	virtual ~Person();
+
+	// ê·¸ëƒ¥ get+ ì›í•˜ëŠ”ê±°
+	int getID();
+	int getlevel();
+	int getleftday();
+	int getsleep_eff();
+	std::string getname();
+
+	Subject* subjects;
 };
 
 #endif // !PERSON
-
-
