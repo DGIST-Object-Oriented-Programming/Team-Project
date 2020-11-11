@@ -2,19 +2,19 @@
 #include<iostream>
 #include "day.h"
 #include "test.h"
-
 #ifndef PERSON
+
 
 class Person : public  Day, Test {
 private:
-	std::string name; // ì°¸ì—¬ì ì´ë¦„
-	int personID;  // ì°¸ì—¬ì í•™ë²ˆ
-	int level = 0;  // ì°¸ì—¬ìì˜ ë ˆë²¨
-	int sleep_eff = 0; // ì°¸ì—¬ìì˜ ìˆ˜ë©´íš¨ìœ¨?
+	std::string name; // Âü¿©ÀÚ ÀÌ¸§
+	int personID;  // Âü¿©ÀÚ ÇĞ¹ø
+	int level = 0;  // Âü¿©ÀÚÀÇ ·¹º§
 public:
-	Person(int); //ì¸ìë¡œ ë°›ì€ intê°’ìœ¼ë¡œ dayì˜ leftday ì´ˆê¸°í™”
-	virtual ~Person();
-	Subject* subjects;
+	Person(int); //ÀÎÀÚ·Î ¹ŞÀº int°ªÀ¸·Î dayÀÇ leftday ÃÊ±âÈ­
+	~Person();
 };
 
 #endif // !PERSON
+
+
