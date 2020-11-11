@@ -44,13 +44,13 @@ void Test::TodayResult(Subject& _sub, Person& _person) {
 
 void Test::AfterTest(Subject& _sub, int score) {
 	float ExpScore = 10 * GetAchievement(); // 성취도 기반 예상 점수
-	if ( score < ExpScore && ( ExpScore - score ) / score > 0.3 ) { //성취도 > 시험 점수 && 오차가 일정 이상일 때 =>본인의 과대평가
+	if ( score < ExpScore && ( ExpScore - score ) / score > 0.3 ) { //성취도 > 시험 점수 && 오차가 일정 이상일 때(임의로 30%로 설정) =>본인의 과대평가
 		std::cout << _sub.GetSubName() << " 과목에 대해 당신은 당신 스스로를 과대평가하고 있군요! 본인의 수준을 깨닫고, 보다 현실적인 목표를 잡아보세요!" << std::endl;
 	}
-	else if ( score > ExpScore && ( score - ExpScore ) / score > 0.3 ) { //성취도 < 시험 점수 && 오차가 일정 이상일 때 =>본인의 과소평가
+	else if ( score > ExpScore && ( score - ExpScore ) / score > 0.3 ) { //성취도 < 시험 점수 && 오차가 일정 이상일 때(임의로 30%로 설정) =>본인의 과소평가
 		std::cout << _sub.GetSubName() << " 과목에 대해 당신은 당신 스스로를 과소평가하고 있군요! 자신감을 갖고, 보다 높은 목표를 잡아보세요!" << std::endl;
 	}
-	else //너 스스로를 알라
+	else //너 스스로를 알라 실천 잘한 사람
 		std::cout << _sub.GetSubName() << " 과목에 대해 성취도에 맞는 점수를 얻으셨군요! 스스로를 아는 것 역시 아주 좋은 자세입니다! 이 자세를 유지하고 열심히 노력하세요!" << std::endl;
 	std::cout << "--------------------------------------------------------" << std::endl;
 }
