@@ -10,10 +10,10 @@
 #include "person.h"
 
 void Test::TodayResult(Subject& _sub, Person& _person) {
-	int leftday = Person::getleftday()
+	int leftday = Person::getleftday() //남은 날짜
 	int dayNum = 15 - leftday; //공부 시작부터 몇일인지 카운트, 원래 14일인데 첫날이 D-1이고 마지막 날이 D-14라서 15-_person.leftday
-	float achievement = Subject::GetAchievement();
-	std::string name = Subject::GetSubName();
+	float achievement = Subject::GetAchievement(); //성취도
+	std::string name = Subject::GetSubName(); //과목명
 	if (dayNum == 14) { //기말고사 전날일 때
 		std::string ExpGrad; //예상 학점
 		float ExpScore = 10 * achievement; //예상 점수, 아래 조건문들을 통해 학점으로 변환, 원래 식은 100*_sub.GetAchievement()/10
@@ -46,8 +46,8 @@ void Test::TodayResult(Subject& _sub, Person& _person) {
 
 
 void Test::AfterTest(Subject& _sub, int score) {
-	float achievement = Subject::GetAchievement();
-	std::string name = Subject::GetSubName();
+	float achievement = Subject::GetAchievement(); //성취도
+	std::string name = Subject::GetSubName(); //과목명
 	float ExpScore = 10 * achievement; // 성취도 기반 예상 점수
 	if ( score < ExpScore && ( ExpScore - score ) / score > 0.3 ) { //성취도 > 시험 점수 && 오차가 일정 이상일 때(임의로 30%로 설정) =>본인의 과대평가
 		std::cout << "직접 입력해주신 효율로 계산된 성취도 " << ExpScore << "에 비해 겨우 " << score << "만큼만 점수를 받으셨군요." << std::endl;
