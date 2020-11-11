@@ -10,7 +10,7 @@
 #include "subject.h"
 #include "person.h"
 
-void Test::TodayResult(Subject& _sub) {
+void Test::TodayResult(Subject& _sub, Person& _person) {
 	int dayNum = 15 - leftday; //공부 시작부터 몇일인지 카운트, 원래 14일인데 첫날이 D-1이고 마지막 날이 D-14라서 15-leftday
 	if (dayNum == 14) { //기말고사 전날일 때
 		std::string ExpGrad; //예상 학점
@@ -43,14 +43,14 @@ void Test::TodayResult(Subject& _sub) {
 			ExpGrad = "F";
 
 		std::cout << "D-" << dayNum << ". 내일이 기말고사입니다!" << std::endl; //날짜 출력
-		std::cout << "당신의 현재 Level은 " << 레벨 << "입니다." << std::endl; //레벨 출력
-		std::cout << 과목명 << " 과목에서 당신의 성취도는 " << GetAchievement() << "입니다." << std::endl; //성취도 출력
+		std::cout << "당신의 현재 Level은 " << _person.level << "입니다." << std::endl; //레벨 출력
+		std::cout << 과목명 << " 과목에서 당신의 성취도는 " << _sub.GetAchievement() << "입니다." << std::endl; //성취도 출력
 		std::cout << 과목명 << " 시험의 예상되는 학점은 " << ExpGrad << "입니다." << std::endl; // 예상 학점 출력
 	}
 	else {
 		std::cout << "D-" << dayNum << std::endl; //날짜 출력
-		std::cout << "당신의 현재 Level은 " << 레벨 << "입니다." << std::endl; //레벨 출력
-		std::cout << 과목 << " 과목에서 당신의 성취도는 " << GetAchievement() << "입니다." << std::endl; //성취도 출력
+		std::cout << "당신의 현재 Level은 " << _person.level << "입니다." << std::endl; //레벨 출력
+		std::cout << 과목명 << " 과목에서 당신의 성취도는 " << GetAchievement() << "입니다." << std::endl; //성취도 출력
 	}
 }
 
