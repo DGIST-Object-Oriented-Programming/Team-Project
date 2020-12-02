@@ -1,47 +1,31 @@
-#include<iostream>
 #include "day.h"
-#include "subject.h"
-#include "person.h"
+
+
 Day::Day() {}
-Day::Day(int leftday, Person& _person){
+Day::Day(Person& _person) {
 	_person.changeSleepEff(0);
 }
 
 void Day::Study(Subject& _sub, Person& _person) {
 	float TotalEff;
-	int sleep_eff;
+	float sleep_eff;
 	int Level;
 
 	sleep_eff = _person.getsleep_eff();
 	Level = _person.getlevel();
 	TotalEff = sleep_eff + _sub.TemEff(Level, 8, sleep_eff);
 
-	//¼ºÃëµµ º¯È­¿¡ µû¸¥ ·¹º§ Áõ°¡
+	//ì„±ì·¨ë„ ë³€í™”ì— ë”°ë¥¸ ë ˆë²¨ ì¦ê°€
 	int postLevel;
 	postLevel = _person.gettotal_achive() / 2.5;
 	_person.changeLevel(postLevel);
 
-	_sub.SetStudyTime(8);//°øºÎ½Ã°£ »ó½Â
-	_sub.SetAchievement(8*TotalEff);//¼ºÃëµµ »ó½Â
+	_sub.SetStudyTime(8);//ê³µë¶€ì‹œê°„ ìƒìŠ¹
+	_sub.SetAchievement(8 * TotalEff);//ì„±ì·¨ë„ ìƒìŠ¹
 
-} //ÇÑ°ú¸ñ¸¸ °øºÎ, 8½Ã°£
-void Day::Study(int _time, Subject& _sub, Person& _person) {
-	float TotalEff;
-	int sleep_eff;
-	int Level;
+} 
 
-	sleep_eff = _person.getsleep_eff();
-	Level = _person.getlevel();
-	TotalEff = sleep_eff + _sub.TemEff(Level, _time, sleep_eff);
-
-	//¼ºÃëµµ º¯È­¿¡ µû¸¥ ·¹º§ Áõ°¡
-	int postLevel;
-	postLevel = _person.gettotal_achive() / 2.5;
-	_person.changeLevel(postLevel);
-
-	_sub.SetStudyTime(_time);//°øºÎ½Ã°£ »ó½Â
-	_sub.SetAchievement(_time * TotalEff);//¼ºÃëµµ »ó½Â
-}
+//í•œê³¼ëª©ë§Œ ê³µë¶€, 8ì‹œê°„
 void Day::Study(float _time, Subject& _sub, Person& _person) {
 	float TotalEff;
 	int sleep_eff;
@@ -51,20 +35,21 @@ void Day::Study(float _time, Subject& _sub, Person& _person) {
 	Level = _person.getlevel();
 	TotalEff = sleep_eff + _sub.TemEff(Level, _time, sleep_eff);
 
-	//¼ºÃëµµ º¯È­¿¡ µû¸¥ ·¹º§ Áõ°¡
+	//ì„±ì·¨ë„ ë³€í™”ì— ë”°ë¥¸ ë ˆë²¨ ì¦ê°€
 	int postLevel;
 	postLevel = _person.gettotal_achive() / 2.5;
 	_person.changeLevel(postLevel);
 
-	_sub.SetStudyTime(_time);//°øºÎ½Ã°£ »ó½Â
-	_sub.SetAchievement(_time * TotalEff);//¼ºÃëµµ »ó½Â
+	_sub.SetStudyTime(_time);//ê³µë¶€ì‹œê°„ ìƒìŠ¹
+	_sub.SetAchievement(_time * TotalEff);//ì„±ì·¨ë„ ìƒìŠ¹
 }
 
-//ÀáÀÚ´Â ½Ã°£ º° °øºÎÈ¿À² º¯È­ ¼¼ÆÃ
+//ì ìëŠ” ì‹œê°„ ë³„ ê³µë¶€íš¨ìœ¨ ë³€í™” ì„¸íŒ…
 void Day::Sleep(Person& _person) {
 	_person.changeSleepEff(0);
 	_person.changeLeftday();
 }
+
 void Day::Sleep(int sleepTime, Person& _person) {
 	_person.changeLeftday();
 	if (sleepTime < 6) {
