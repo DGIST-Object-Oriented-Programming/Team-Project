@@ -21,7 +21,7 @@ private:
 					 //혹시 나중에 다르게 쓰일까 싶어서 성취도와 공부시간을 분리해둠. 
 					 //성취도는 공부를 안하면 내려갈 수 있고, 학습의 효율이 계속 달라지기 때문에 공부시간과 성취도를 비교하면 공부 효율도 알 수 있다.
 	std::string subject;
-protected:
+public:
 	Subject();
 	Subject(std::string); //과목명만 받는 경우, 효율은 0.25로 초기화
 	Subject(std::string, float); //과목명과 효율을 직접 입력받는 경우
