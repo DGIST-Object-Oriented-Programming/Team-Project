@@ -5,33 +5,35 @@
 
 #ifndef PERSON
 
-class Person : public  Day, Test {
+class Person {
 private:
-	std::string name; // Âü¿©ÀÚ ÀÌ¸§
-	int personID;  // Âü¿©ÀÚ ÇĞ¹ø
-	int level = 0;  // Âü¿©ÀÚÀÇ ·¹º§
-	int leftday = 0; // ³²Àº ¿äÀÏ
-	int sleep_eff = 0; // Âü¿©ÀÚÀÇ ¼ö¸éÈ¿À²?
-	float total_achive;//ÃÑ ¼ºÃëµµ ÇÕ ÀúÀå
+	std::string name; // ì°¸ì—¬ì ì´ë¦„
+	int personID;  // ì°¸ì—¬ì í•™ë²ˆ
+	int level = 0;  // ì°¸ì—¬ìì˜ ë ˆë²¨
+	int leftday = 0; // ë‚¨ì€ ìš”ì¼
+	int sleep_eff = 0; // ì°¸ì—¬ìì˜ ìˆ˜ë©´íš¨ìœ¨?
+	float total_achive;//ì´ ì„±ì·¨ë„ í•© ì €ì¥
 
 public:
-	Person(int); //ÀÎÀÚ·Î ¹ŞÀº int°ªÀ¸·Î dayÀÇ leftday ÃÊ±âÈ­
+	Person(int); //ì¸ìë¡œ ë°›ì€ intê°’ìœ¼ë¡œ dayì˜ leftday ì´ˆê¸°í™”
 	virtual ~Person();
-	void changeLevel(int);
-	void changeLeftday();
-	void changeSleepEff(int);
+	void changeLevel(int a) { level = level + a; };
+	void changeLeftday() { leftday = leftday - 1; }
+	void changeSleepEff(int a) { sleep_eff = a; };
 
-	// ±×³É get+ ¿øÇÏ´Â°Å
+	// ê·¸ëƒ¥ get+ ì›í•˜ëŠ”ê±°
 	int getID();
 	int getlevel();
 	int getleftday();
-	int getsleep_eff();
-	int gettotal_achive();
+	float getsleep_eff();
+	float gettotal_achive() { return total_achive; }
 
-	int changeTotalAchive(int);//ÃÑ ¼ºÃëµµ °ª º¯°æ
+	void setdaylist();
+	void changeTotalAchive(int a) { total_achive = total_achive + a; }//ì´ ì„±ì·¨ë„ ê°’ ë³€ê²½
 	std::string getname();
 
 	Subject* subjects;
+	int subject_num;
 };
 
 #endif // !PERSON
