@@ -1,14 +1,16 @@
 #pragma once
 #include<iostream>
 #include "subject.h"
+#include "person.h"
 
 #ifndef DAY
-class Day{
+class Person;
+
+class Day {
 public:
 	Day();
-	Day(int, Person&);
-	void Study(Subject&, Person&); //한과목만 공부, 8시간
-	void Study(int, Subject&, Person&);
+	Day(Person&);
+	void Study(Subject&, Person&); 
 	void Study(float, Subject&, Person&);
 
 	void Sleep(Person&);
