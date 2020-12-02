@@ -26,14 +26,14 @@ Subject::Subject(std::string Sub, float _eff) {//과목 이름과 효율을 생�
 	}
 }
 
-Subject::~Subject(){}//따로 new로 할당한 공간이 없으므로 소멸자에 필요한 것이 없음, 필요하면 추후 추가
+Subject::~Subject() {}//따로 new로 할당한 공간이 없으므로 소멸자에 필요한 것이 없음, 필요하면 추후 추가
 
 void Subject::SetEff(float _eff) {//효율을 _eff로 변경
 	eff = _eff;
 }
 
 //v를 하한 lo, 상한 hi에 맞춰서 clamp해주는 함수
-float clamp(const float& v, const float& lo, const float& hi) {	return (v < lo) ? lo : (hi < v) ? hi : v; }
+float clamp(const float& v, const float& lo, const float& hi) { return (v < lo) ? lo : (hi < v) ? hi : v; }
 
 float Subject::TemEff(int _level, float _Study, float _Sleep) {//레벨,  공부시간, 수면시간을 입력받아서 효율을 계산해서 리턴해줌. Subject의 효율은 변하지 않음.
 	float Eff = eff;
