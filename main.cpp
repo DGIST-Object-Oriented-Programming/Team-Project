@@ -4,11 +4,20 @@
 #include "subject.h"
 
 int main() {
-	Test test;
-	int a = 0;
-
+	std::cout << "Hello! This is DGIST TEST simulating system. " << std::endl;
+	std::cout << "0: quit        1: start" << std::endl;
+	int _get_start = 0;
+	std::cin >> _get_start;
+	std::cout << std::endl;
+	if (_get_start != 1) {
+		std::cout << "Good Bye!" << std::endl;
+		return 0;
+	}
+	
 	// get the leftday 
-	std::cout << "How many days are left?  ";
+	std::cout << "Its the first day of Simulation!" << std::endl;
+	std::cout << "How many days are left for the test?  ";
+	int a = 0;
 	std::cin >> a;
 	std::cout<<	std::endl;
 	while (a <= 0) {
@@ -19,6 +28,9 @@ int main() {
 
 	// make planner
 	Person tester(a);
+
+	// make object for testing
+	Test test;
 
 	// repeat task of day
 	while (tester.getleftday() > 0) {
