@@ -16,31 +16,31 @@
 class Subject {
 private:
 	float eff;
-	float Achievement; //ì„±ì·¨ë„
-	float TotalStudy; //ê³µë¶€ì‹œê°„
-					 //í˜¹ì‹œ ë‚˜ì¤‘ì— ë‹¤ë¥´ê²Œ ì“°ì¼ê¹Œ ì‹¶ì–´ì„œ ì„±ì·¨ë„ì™€ ê³µë¶€ì‹œê°„ì„ ë¶„ë¦¬í•´ë‘ . 
-					 //ì„±ì·¨ë„ëŠ” ê³µë¶€ë¥¼ ì•ˆí•˜ë©´ ë‚´ë ¤ê°ˆ ìˆ˜ ìˆê³ , í•™ìŠµì˜ íš¨ìœ¨ì´ ê³„ì† ë‹¬ë¼ì§€ê¸° ë•Œë¬¸ì— ê³µë¶€ì‹œê°„ê³¼ ì„±ì·¨ë„ë¥¼ ë¹„êµí•˜ë©´ ê³µë¶€ íš¨ìœ¨ë„ ì•Œ ìˆ˜ ìˆë‹¤.
+	float Achievement; //¼ºÃëµµ
+	float TotalStudy; //°øºÎ½Ã°£
+					 //È¤½Ã ³ªÁß¿¡ ´Ù¸£°Ô ¾²ÀÏ±î ½Í¾î¼­ ¼ºÃëµµ¿Í °øºÎ½Ã°£À» ºĞ¸®ÇØµÒ. 
+					 //¼ºÃëµµ´Â °øºÎ¸¦ ¾ÈÇÏ¸é ³»·Á°¥ ¼ö ÀÖ°í, ÇĞ½ÀÀÇ È¿À²ÀÌ °è¼Ó ´Ş¶óÁö±â ¶§¹®¿¡ °øºÎ½Ã°£°ú ¼ºÃëµµ¸¦ ºñ±³ÇÏ¸é °øºÎ È¿À²µµ ¾Ë ¼ö ÀÖ´Ù.
 	std::string subject;
 public:
 	Subject();
-	Subject(std::string); //ê³¼ëª©ëª…ë§Œ ë°›ëŠ” ê²½ìš°, íš¨ìœ¨ì€ 0.25ë¡œ ì´ˆê¸°í™”
-	Subject(std::string, float); //ê³¼ëª©ëª…ê³¼ íš¨ìœ¨ì„ ì§ì ‘ ì…ë ¥ë°›ëŠ” ê²½ìš°
+	Subject(std::string); //°ú¸ñ¸í¸¸ ¹Ş´Â °æ¿ì, È¿À²Àº 0.25·Î ÃÊ±âÈ­
+	Subject(std::string, float); //°ú¸ñ¸í°ú È¿À²À» Á÷Á¢ ÀÔ·Â¹Ş´Â °æ¿ì
 	virtual  ~Subject();
 
-	float GetEff() { return eff; } //íš¨ìœ¨ì— ì ‘ê·¼í•˜ê¸° ìœ„í•´ì„œ ì“°ëŠ” í•¨ìˆ˜
-	void SetEff(float _eff); //íš¨ìœ¨ì„ ì„ì˜ì˜ ê°’ìœ¼ë¡œ ì„¤ì •
-	float TemEff(int _level, float _Study, float _Sleep); // ë ˆë²¨,  ê³µë¶€ì‹œê°„, ìˆ˜ë©´ì‹œê°„ì„ ì…ë ¥ë°›ì•„ì„œ íš¨ìœ¨ì„ ê³„ì‚°í•´ì„œ ë¦¬í„´í•´ì¤Œ. Subjectì˜ íš¨ìœ¨ì€ ë³€í•˜ì§€ ì•ŠìŒ. 
+	float GetEff() { return eff; } //È¿À²¿¡ Á¢±ÙÇÏ±â À§ÇØ¼­ ¾²´Â ÇÔ¼ö
+	void SetEff(float _eff); //È¿À²À» ÀÓÀÇÀÇ °ªÀ¸·Î ¼³Á¤
+	float TemEff(int _level, float _Study, float _Sleep); // ·¹º§,  °øºÎ½Ã°£, ¼ö¸é½Ã°£À» ÀÔ·Â¹Ş¾Æ¼­ È¿À²À» °è»êÇØ¼­ ¸®ÅÏÇØÁÜ. SubjectÀÇ È¿À²Àº º¯ÇÏÁö ¾ÊÀ½. 
 
-	void SetSub(std::string); // ê³¼ëª©ëª… ë³€ê²½ í•¨ìˆ˜
+	void SetSub(std::string); // °ú¸ñ¸í º¯°æ ÇÔ¼ö
 	std::string GetSubName() { return subject; }
 
-	float GetStudyTime() { return TotalStudy; }; // ê³µë¶€ì‹œê°„ ì ‘ê·¼ í•¨ìˆ˜
-	void SetStudyTime(float); // ê³µë¶€ì‹œê°„ ì„¤ì • í•¨ìˆ˜, ì…ë ¥ê°’ ë§Œí¼ TotalStudyê°€ ëŠ˜ì–´ë‚œë‹¤.
+	float GetStudyTime() { return TotalStudy; }; // °øºÎ½Ã°£ Á¢±Ù ÇÔ¼ö
+	void SetStudyTime(float); // °øºÎ½Ã°£ ¼³Á¤ ÇÔ¼ö, ÀÔ·Â°ª ¸¸Å­ TotalStudy°¡ ´Ã¾î³­´Ù.
 
-	float GetAchievement() { return Achievement; }// ì„±ì·¨ë„ ì ‘ê·¼ í•¨ìˆ˜
-	void SetAchievement(float); // ì„±ì·¨ë„ ì„¤ì • í•¨ìˆ˜, ì„±ì·¨ë„ëŠ” ê²½ìš°ì— ë”°ë¼ +ë„, -ë„ ë  ìˆ˜ ìˆë‹¤.
+	float GetAchievement() { return Achievement; }// ¼ºÃëµµ Á¢±Ù ÇÔ¼ö
+	void SetAchievement(float); // ¼ºÃëµµ ¼³Á¤ ÇÔ¼ö, ¼ºÃëµµ´Â °æ¿ì¿¡ µû¶ó +µµ, -µµ µÉ ¼ö ÀÖ´Ù.
 
-	void StudyEffJudge(); //ê³µë¶€ì‹œê°„ ëŒ€ë¹„ ì„±ì·¨ë„ë¥¼ íŒë‹¨í•´ì„œ ê³µë¶€ë¥¼ ì–¼ë§ˆë‚˜ íš¨ìœ¨ì ìœ¼ë¡œ í–ˆëŠ” ì§€ ì•Œ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
-						  //ì½”ë“œ ì§œë‹¤ë³´ë‹ˆ ìˆìœ¼ë©´ ì¢‹ì„ ê²ƒ ê°™ì•„ì„œ ì¶”ê°€í•´ë´¤ìŠµë‹ˆë‹¤!
+	void StudyEffJudge(); //°øºÎ½Ã°£ ´ëºñ ¼ºÃëµµ¸¦ ÆÇ´ÜÇØ¼­ °øºÎ¸¦ ¾ó¸¶³ª È¿À²ÀûÀ¸·Î Çß´Â Áö ¾Ë ¼ö ÀÖ½À´Ï´Ù.
+						  //ÄÚµå Â¥´Ùº¸´Ï ÀÖÀ¸¸é ÁÁÀ» °Í °°¾Æ¼­ Ãß°¡ÇØºÃ½À´Ï´Ù!
 };
 #endif // !SUBJECT

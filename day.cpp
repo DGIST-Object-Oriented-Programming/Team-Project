@@ -13,49 +13,53 @@ void Day::Study(Subject& _sub, Person& _person) {
 
 	sleep_eff = _person.getsleep_eff();
 	Level = _person.getlevel();
-	TotalEff = sleep_eff + _sub.TemEff(Level, 8, sleep_eff);
+	//TotalEff = sleep_eff + _sub.TemEff(Level, 8, sleep_eff);
+	TotalEff = sleep_eff + _sub.TemEff(Level, 8, sleep_time);
 
-	//ì„±ì·¨ë„ ë³€í™”ì— ë”°ë¥¸ ë ˆë²¨ ì¦ê°€
+	//¼ºÃëµµ º¯È­¿¡ µû¸¥ ·¹º§ Áõ°¡
 	int postLevel;
 	postLevel = _person.gettotal_achive() / 2.5;
 	_person.changeLevel(postLevel);
 
-	_sub.SetStudyTime(8);//ê³µë¶€ì‹œê°„ ìƒìŠ¹
-	_sub.SetAchievement(8 * TotalEff);//ì„±ì·¨ë„ ìƒìŠ¹
+	_sub.SetStudyTime(8);//°øºÎ½Ã°£ »ó½Â
+	_sub.SetAchievement(8 * TotalEff);//¼ºÃëµµ »ó½Â
 
 } 
 
-//í•œê³¼ëª©ë§Œ ê³µë¶€, 8ì‹œê°„
+//ÇÑ°ú¸ñ¸¸ °øºÎ, 8½Ã°£
 void Day::Study(float _time, Subject& _sub, Person& _person) {
 	float TotalEff;
-	int sleep_eff;
+	float sleep_eff;
 	int Level;
 
 	sleep_eff = _person.getsleep_eff();
 	Level = _person.getlevel();
-	TotalEff = sleep_eff + _sub.TemEff(Level, _time, sleep_eff);
+	//TotalEff = sleep_eff + _sub.TemEff(Level, _time, sleep_eff);
+	TotalEff = sleep_eff + _sub.TemEff(Level, _time, sleep_time);
 
-	//ì„±ì·¨ë„ ë³€í™”ì— ë”°ë¥¸ ë ˆë²¨ ì¦ê°€
+	//¼ºÃëµµ º¯È­¿¡ µû¸¥ ·¹º§ Áõ°¡
 	int postLevel;
 	postLevel = _person.gettotal_achive() / 2.5;
 	_person.changeLevel(postLevel);
 
-	_sub.SetStudyTime(_time);//ê³µë¶€ì‹œê°„ ìƒìŠ¹
-	_sub.SetAchievement(_time * TotalEff);//ì„±ì·¨ë„ ìƒìŠ¹
+	_sub.SetStudyTime(_time);//°øºÎ½Ã°£ »ó½Â
+	_sub.SetAchievement(_time * TotalEff); //¼ºÃëµµ »ó½Â
 }
 
-//ì ìëŠ” ì‹œê°„ ë³„ ê³µë¶€íš¨ìœ¨ ë³€í™” ì„¸íŒ…
+//ÀáÀÚ´Â ½Ã°£ º° °øºÎÈ¿À² º¯È­ ¼¼ÆÃ
 void Day::Sleep(Person& _person) {
+	sleep_time = 6;
 	_person.changeSleepEff(0);
 	_person.changeLeftday();
 }
 
 void Day::Sleep(int sleepTime, Person& _person) {
 	_person.changeLeftday();
+	sleep_time = sleepTime;
 	if (sleepTime < 6) {
 		_person.changeSleepEff(-0.05);
 	}
-	else if (sleepTime >= 10) {
+	else if (sleepTime >= 6 && sleepTime < 10) {
 		_person.changeSleepEff(0);
 	}
 	else {
@@ -63,13 +67,14 @@ void Day::Sleep(int sleepTime, Person& _person) {
 	}
 }
 void Day::Sleep(float sleepTime, Person& _person) {
+	sleep_time = sleepTime;
 	int sleep_eff;
 	sleep_eff = _person.getsleep_eff();
 	_person.changeLeftday();
 	if (sleepTime < 6.0f) {
 		_person.changeSleepEff(-0.05);
 	}
-	else if (sleepTime >= 10.0f) {
+	else if (sleepTime >= 6.0f && sleepTime < 10.0f) {
 		_person.changeSleepEff(0);
 	}
 	else {

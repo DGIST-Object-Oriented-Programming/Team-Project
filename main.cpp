@@ -4,20 +4,23 @@
 #include "subject.h"
 
 int main() {
-	std::cout << "Hello! This is DGIST TEST simulating system. " << std::endl;
-	std::cout << "0: quit        1: start" << std::endl;
-	int _get_start = 0;
-	std::cin >> _get_start;
-	std::cout << std::endl;
-	if (_get_start != 1) {
-		std::cout << "Good Bye!" << std::endl;
-		return 0;
-	}
 	
-	// get the leftday 
-	std::cout << "Its the first day of Simulation!" << std::endl;
-	std::cout << "How many days are left for the test?  ";
+
+	Test test;
 	int a = 0;
+
+	std::cout << "�ââââââââââââââââââââââââââââââââââââââââ�" << std::endl;
+	std::cout << "��                                                                              ��" << std::endl;
+	std::cout << "��  Hello. I'm personal Study Planner. I'll help you with your study.           ��" << std::endl;
+	std::cout << "��  Good Luck!                                                                  ��" << std::endl;
+	std::cout << "��                                                                              ��" << std::endl;
+	std::cout << "�ââââââââââââââââââââââââââââââââââââââââ�" << std::endl << std::endl;;
+	             
+	
+
+
+	// get the leftday 
+	std::cout << "How many days are left?  ";
 	std::cin >> a;
 	std::cout<<	std::endl;
 	while (a <= 0) {
@@ -29,14 +32,11 @@ int main() {
 	// make planner
 	Person tester(a);
 
-	// make object for testing
-	Test test;
-
 	// repeat task of day
 	while (tester.getleftday() > 0) {
 		Day day(tester);
 		int sub_many;
-		std::cout << "How many subjects will you study today?";
+		std::cout << "How many subjects will you study today? ";
 		std::cin >> sub_many;
 		std::cout << std::endl;
 
@@ -79,6 +79,7 @@ int main() {
 
 		// do you want to see result of day?
 		int tmp;
+		std::cout << "----------------------------------------------------------------------------------" << std::endl;
 		std::cout << "Its end of the day! Do you want to see result, today? " << std::endl;
 		std::cout << "1. yes  2. no " << std::endl;
 		std::cin >> tmp;
@@ -89,6 +90,8 @@ int main() {
 			}
 		}
 
+		std::cout << "Next Day" << std::endl;
+
 	}
 
 
@@ -96,7 +99,6 @@ int main() {
 	std::cout << "Let's do Aftertest!" << std::endl;
 	int score = 0;
 	for (int i = 0; i < tester.subject_num; i++) {
-		std::cout << i << "." << tester.subjects[i].GetSubName() << std::endl;
 		std::cout << "please enter the score of " << tester.subjects[i].GetSubName()<<" : ";
 		std::cin >> score;
 		std::cout << std::endl;

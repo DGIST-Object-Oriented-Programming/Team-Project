@@ -5,20 +5,21 @@
 void Person::setdaylist() {
 	std::cout << "How many subjects do u have? : "; std::cin >> subject_num; std::cout << std::endl;
 
-	// ê³¼ëª© ì €ì¥
+	// °ú¸ñ ÀúÀå
 	subjects = new Subject[subject_num];
 
 	std::string subs_name;
 	float subs_eff;
 
-	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "----------------------------------------------------------------------------------" << std::endl;
+	std::cout << "please give me Subject's information" << std::endl<<std::endl;
 	for (int i = 0; i < subject_num; i++) {
 		std::cout << "Enter your Subject name : "; std::cin >> subs_name; std::cout << std::endl;
 
-		std::cout << "Enter your Subject's efficient : " << std::endl << "please put 0 if you can't decide :  ";
+		std::cout << "Enter your Subject's efficient" <<  " (please put 0 if you can't decide) :  ";
 		std::cin >> subs_eff; std::cout << std::endl;
 
-		// effê°€ 0~1 ì‚¬ì´ì— ì—†ì„ ê²½ìš°
+		// eff°¡ 0~1 »çÀÌ¿¡ ¾øÀ» °æ¿ì
 		while (subs_eff > 1 || subs_eff < 0) {
 			std::cout << "Please entet again. (Eff must be in 0~1) : "; std::cin >> subs_eff; std::cout << std::endl;
 		}
@@ -31,19 +32,19 @@ void Person::setdaylist() {
 			subjects[i].SetEff(subs_eff);
 		}
 	}
-	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "----------------------------------------------------------------------------------" << std::endl;
 }
 
 
 Person::Person(int a) {
-	std::cout << "Enter your name : "; // ì´ë¦„
+	std::cout << "Enter your name : "; // ÀÌ¸§
 	std::cin >> name;
 	std::cout << std::endl;
-	std::cout << "Enter your Student Number : "; // í•™ë²ˆ
+	std::cout << "Enter your Student Number : "; // ÇĞ¹ø
 	std::cin >> personID;
 	std::cout << std::endl;
-	std::cout << "Hello " << name << "!, your current level is " << level << "." << std::endl;
-	leftday = a; // ë‚¨ì€ ìš”ì¼
+	std::cout << "Hello " << name << "!, your current level is " << level << "." << std::endl<<std::endl;
+	leftday = a; // ³²Àº ¿äÀÏ
 	setdaylist(); 
 }
 
@@ -51,11 +52,17 @@ Person::Person(int a) {
 
 Person::~Person() {
 	delete[] subjects;
-	std::cout << "Thank you for using our program. Bye " << name << std::endl;
+	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl;
+	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
+	std::cout << "¢Ã  Thank you for using our program. Bye                                        ¢Ã" << std::endl;
+	std::cout << "¢Ã  Good Luck!                                                                  ¢Ã" << std::endl;
+	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
+	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl << std::endl;;
+
 }
 
 
-// ë³€ìˆ˜ ê°€ì ¸ì˜¤ê¸°
+// º¯¼ö °¡Á®¿À±â
 int Person::getID() { return personID; }
 int Person::getlevel() { return level; }
 int Person::getleftday() { return leftday; }

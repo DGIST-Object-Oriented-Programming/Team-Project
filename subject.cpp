@@ -5,16 +5,16 @@ Subject::Subject() {
 	TotalStudy = 0;
 	Achievement = 0;
 	subject = std::string("");
-}//ê³¼ëª© ì´ë¦„ì„ ìƒì„±ìë¡œ ë°›ì§€ ì•ŠëŠ” ê²½ìš°ëŠ” ì—†ìŒ
+}//°ú¸ñ ÀÌ¸§À» »ı¼ºÀÚ·Î ¹ŞÁö ¾Ê´Â °æ¿ì´Â ¾øÀ½
 
-Subject::Subject(std::string Sub) {//ê³¼ëª© ì´ë¦„ì„ ìƒì„±ìë¡œ ë°›ëŠ” ê²½ìš°
+Subject::Subject(std::string Sub) {//°ú¸ñ ÀÌ¸§À» »ı¼ºÀÚ·Î ¹Ş´Â °æ¿ì
 	subject = Sub;
 	eff = 0.25;
 	TotalStudy = 0;
 	Achievement = 0;
 }
 
-Subject::Subject(std::string Sub, float _eff) {//ê³¼ëª© ì´ë¦„ê³¼ íš¨ìœ¨ì„ ìƒì„±ìë¡œ ë°›ëŠ” ê²½ìš°
+Subject::Subject(std::string Sub, float _eff) {//°ú¸ñ ÀÌ¸§°ú È¿À²À» »ı¼ºÀÚ·Î ¹Ş´Â °æ¿ì
 	if (_eff <= 1 && _eff >= 0) {
 		eff = _eff;
 		TotalStudy = 0;
@@ -22,47 +22,48 @@ Subject::Subject(std::string Sub, float _eff) {//ê³¼ëª© ì´ë¦„ê³¼ íš¨ìœ¨ì„ ìƒì
 		subject = Sub;
 	}
 	else {
-		std::cout << "íš¨ìœ¨ì€  0ì—ì„œ 1ì‚¬ì´ì˜ ê°’ì´ì–´ì•¼ í•©ë‹ˆë‹¤. " << std::endl;
+		std::cout << "È¿À²Àº  0¿¡¼­ 1»çÀÌÀÇ °ªÀÌ¾î¾ß ÇÕ´Ï´Ù. " << std::endl;
 	}
 }
 
-Subject::~Subject() {}//ë”°ë¡œ newë¡œ í• ë‹¹í•œ ê³µê°„ì´ ì—†ìœ¼ë¯€ë¡œ ì†Œë©¸ìì— í•„ìš”í•œ ê²ƒì´ ì—†ìŒ, í•„ìš”í•˜ë©´ ì¶”í›„ ì¶”ê°€
+Subject::~Subject() {}//µû·Î new·Î ÇÒ´çÇÑ °ø°£ÀÌ ¾øÀ¸¹Ç·Î ¼Ò¸êÀÚ¿¡ ÇÊ¿äÇÑ °ÍÀÌ ¾øÀ½, ÇÊ¿äÇÏ¸é ÃßÈÄ Ãß°¡
 
-void Subject::SetEff(float _eff) {//íš¨ìœ¨ì„ _effë¡œ ë³€ê²½
+void Subject::SetEff(float _eff) {//È¿À²À» _eff·Î º¯°æ
 	eff = _eff;
 }
 
-//vë¥¼ í•˜í•œ lo, ìƒí•œ hiì— ë§ì¶°ì„œ clampí•´ì£¼ëŠ” í•¨ìˆ˜
+//v¸¦ ÇÏÇÑ lo, »óÇÑ hi¿¡ ¸ÂÃç¼­ clampÇØÁÖ´Â ÇÔ¼ö
 float clamp(const float& v, const float& lo, const float& hi) { return (v < lo) ? lo : (hi < v) ? hi : v; }
 
-float Subject::TemEff(int _level, float _Study, float _Sleep) {//ë ˆë²¨,  ê³µë¶€ì‹œê°„, ìˆ˜ë©´ì‹œê°„ì„ ì…ë ¥ë°›ì•„ì„œ íš¨ìœ¨ì„ ê³„ì‚°í•´ì„œ ë¦¬í„´í•´ì¤Œ. Subjectì˜ íš¨ìœ¨ì€ ë³€í•˜ì§€ ì•ŠìŒ.
+float Subject::TemEff(int _level, float _Study, float _Sleep) {//·¹º§,  °øºÎ½Ã°£, ¼ö¸é½Ã°£À» ÀÔ·Â¹Ş¾Æ¼­ È¿À²À» °è»êÇØ¼­ ¸®ÅÏÇØÁÜ. SubjectÀÇ È¿À²Àº º¯ÇÏÁö ¾ÊÀ½.
 	float Eff = eff;
-	Eff += clamp((_level / 128) * 0.1, 0, 0.1); // levelì— ë”°ë¥¸ íš¨ìœ¨(0 ~ 128 -> 0 ~ 0.1)
-	Eff += clamp((_Study / 8) * 0.05, 0, 0.05); // ê³µë¶€ì‹œê°„ì— ë”°ë¥¸ íš¨ìœ¨(0 ~ 8 -> 0 ~ 0.05)
-	Eff += clamp((_Sleep - 6) / 4 * 0.05, -0.05, 0.05); //ìˆ˜ë©´ì‹œê°„ì— ë”°ë¥¸ íš¨ìœ¨(2 ~ 10 -> -0.05 ~ 0.05)
+	Eff += clamp(((float)_level / 128) * 0.1, 0, 0.1); // level¿¡ µû¸¥ È¿À²(0 ~ 128 -> 0 ~ 0.1)
+	Eff += clamp((_Study / 8) * 0.05, 0, 0.05); // °øºÎ½Ã°£¿¡ µû¸¥ È¿À²(0 ~ 8 -> 0 ~ 0.05)
+	Eff += clamp((_Sleep - 6) / 4 * 0.05, -0.05, 0.05); //¼ö¸é½Ã°£¿¡ µû¸¥ È¿À²(2 ~ 10 -> -0.05 ~ 0.05)
+	//Eff += _Sleep;
 	return Eff;
 }
 
-void Subject::SetSub(std::string Sub) {// ê³¼ëª©ëª… ë³€ê²½ í•¨ìˆ˜
+void Subject::SetSub(std::string Sub) {// °ú¸ñ¸í º¯°æ ÇÔ¼ö
 	subject = Sub;
 }
 
-void Subject::SetStudyTime(float time) {// ê³µë¶€ì‹œê°„ ì„¤ì •(Day í´ë ˆìŠ¤ì˜ studyí•¨ìˆ˜ëŠ” ì´ í•¨ìˆ˜ë¥¼ ì´ìš©í•´ì„œ TotalStudy ë³€ìˆ˜ì— ì ‘ê·¼)
+void Subject::SetStudyTime(float time) {// °øºÎ½Ã°£ ¼³Á¤(Day Å¬·¹½ºÀÇ studyÇÔ¼ö´Â ÀÌ ÇÔ¼ö¸¦ ÀÌ¿ëÇØ¼­ TotalStudy º¯¼ö¿¡ Á¢±Ù)
 	TotalStudy += time;
 }
 
-void Subject::SetAchievement(float _achievement) {// ì„±ì·¨ë„ ì„¤ì • í•¨ìˆ˜, ì„±ì·¨ë„ëŠ” ê²½ìš°ì— ë”°ë¼ +ë„, -ë„ ë  ìˆ˜ ìˆë‹¤.
+void Subject::SetAchievement(float _achievement) {// ¼ºÃëµµ ¼³Á¤ ÇÔ¼ö, ¼ºÃëµµ´Â °æ¿ì¿¡ µû¶ó +µµ, -µµ µÉ ¼ö ÀÖ´Ù.
 	Achievement += _achievement;
 }
 
 void Subject::StudyEffJudge() {
-	if (Achievement < TotalStudy * eff) { //ê³µë¶€ì‹œê°„ * ê¸°ë³¸íš¨ìœ¨ë³´ë‹¤ ì„±ì·¨ë„ê°€ ë–¨ì–´ì§ˆ ë•Œ
-		std::cout << "ì‹œê°„ ëŒ€ë¹„ ê³µë¶€ì˜ íš¨ìœ¨ì´ ì•ˆì¢‹ìŠµë‹ˆë‹¤. ìˆ™ë©´ì„ ì¶©ë¶„íˆ ì·¨í•˜ê³  ì—´ì‹¬íˆ ê³µë¶€í•´ ë³´ì„¸ìš”!" << std::endl;
+	if (Achievement < TotalStudy * eff) { //°øºÎ½Ã°£ * ±âº»È¿À²º¸´Ù ¼ºÃëµµ°¡ ¶³¾îÁú ¶§
+		std::cout << "½Ã°£ ´ëºñ °øºÎÀÇ È¿À²ÀÌ ¾ÈÁÁ½À´Ï´Ù. ¼÷¸éÀ» ÃæºĞÈ÷ ÃëÇÏ°í ¿­½ÉÈ÷ °øºÎÇØ º¸¼¼¿ä!" << std::endl;
 	}
-	else if (Achievement > TotalStudy * (eff + 0.1)) {//ê³µë¶€ì‹œê°„ * ê¸°ë³¸íš¨ìœ¨ë³´ë‹¤ ì–´ëŠì •ë„ ë†’ì€ ì„ ìœ¼ë¡œ ê³µë¶€í•  ê²½ìš°
-		std::cout << "ì‹œê°„ ëŒ€ë¹„ ê³µë¶€ì˜ ë§¤ìš° ì¢‹ìŠµë‹ˆë‹¤. ì´ëŒ€ë¡œë§Œ ê³µë¶€í•˜ë©´ A+ !" << std::endl;
+	else if (Achievement > TotalStudy * (eff + 0.1)) {//°øºÎ½Ã°£ * ±âº»È¿À²º¸´Ù ¾î´ÀÁ¤µµ ³ôÀº ¼±À¸·Î °øºÎÇÒ °æ¿ì
+		std::cout << "½Ã°£ ´ëºñ °øºÎÀÇ ¸Å¿ì ÁÁ½À´Ï´Ù. ÀÌ´ë·Î¸¸ °øºÎÇÏ¸é A+ !" << std::endl;
 	}
-	else {//ì´ì™¸ì˜ ê²½ìš°
-		std::cout << "ì‹œê°„ ëŒ€ë¹„ ê³µë¶€ì˜ íš¨ìœ¨ì´ ê´œì°®ìŠµë‹ˆë‹¤. ì¡°ê¸ˆë§Œ ë” ì—´ì‹¬íˆ í•˜ë©´ A+ !" << std::endl;
+	else {//ÀÌ¿ÜÀÇ °æ¿ì
+		std::cout << "½Ã°£ ´ëºñ °øºÎÀÇ È¿À²ÀÌ ±¦Âú½À´Ï´Ù. Á¶±İ¸¸ ´õ ¿­½ÉÈ÷ ÇÏ¸é A+ !" << std::endl;
 	}
 }
