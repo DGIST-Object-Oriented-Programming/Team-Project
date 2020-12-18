@@ -9,12 +9,12 @@ int main() {
 	Test test;
 	int a = 0;
 
-	std::cout << "�ââââââââââââââââââââââââââââââââââââââââ�" << std::endl;
-	std::cout << "��                                                                              ��" << std::endl;
-	std::cout << "��  Hello. I'm personal Study Planner. I'll help you with your study.           ��" << std::endl;
-	std::cout << "��  Good Luck!                                                                  ��" << std::endl;
-	std::cout << "��                                                                              ��" << std::endl;
-	std::cout << "�ââââââââââââââââââââââââââââââââââââââââ�" << std::endl << std::endl;;
+	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl;
+	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
+	std::cout << "¢Ã  Hello. I'm personal Study Planner. I'll help you with your study.           ¢Ã" << std::endl;
+	std::cout << "¢Ã  Good Luck!                                                                  ¢Ã" << std::endl;
+	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
+	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl << std::endl;;
 	             
 	
 
@@ -85,9 +85,11 @@ int main() {
 		std::cin >> tmp;
 		std::cout << std::endl;
 		if (tmp == 1) {
+			test.DayNum(tester);
 			for (int i = 0; i < tester.subject_num; i++) {
 				test.TodayResult(tester.subjects[i], tester);
 			}
+			std::cout << "----------------------------------------------------------------------------------" << std::endl;
 		}
 
 		std::cout << "Next Day" << std::endl;
