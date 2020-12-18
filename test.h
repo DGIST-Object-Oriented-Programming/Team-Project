@@ -13,6 +13,7 @@ public:
 	Test() {};
 	~Test() {};
 
+	void DayNum(Person& _person);
 	void TodayResult(Subject& _sub, Person& _person);
 	void AfterTest(Subject& _sub, int score);
 };
