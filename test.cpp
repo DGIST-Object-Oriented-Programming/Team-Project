@@ -1,24 +1,29 @@
+/////////////////////////////////////////////////////////////////
+//½Ã°¢ÀûÀÎ ºÎºĞ¿¡ ´ëÇØ ½Å°æ½á¾ß°Ú³×¿ä
+//AfterTestÀÇ Ãâ·Â ºÎºĞ ±ÛÀº ÀÓ½Ã·Î ½á³õÀº ±ÛÀÌ¸ç, ÃÖÁ¾º»¿¡¼­´Â ±Û ³»¿ëÀº ¼öÁ¤ÇÏ´Â°Ô ÁÁÀ» µí
+/////////////////////////////////////////////////////////////////
+
 #include "test.h"
 
 void Test::DayNum(Person& _person) {
-	int leftday = _person.getleftday(); //ë‚¨ì€ ë‚ ì§œ
-	if (leftday == 0) { //ê¸°ë§ê³ ì‚¬ ì „ë‚ ì¼ ë•Œ
-		std::cout << "D-" << leftday << ". ë‚´ì¼ì´ ê¸°ë§ê³ ì‚¬ì…ë‹ˆë‹¤!" << std::endl; //ë‚ ì§œ ì¶œë ¥
+	int leftday = _person.getleftday(); //³²Àº ³¯Â¥
+	if (leftday == 0) { //±â¸»°í»ç Àü³¯ÀÏ ¶§
+		std::cout << "D-" << leftday << ". ³»ÀÏÀÌ ±â¸»°í»çÀÔ´Ï´Ù!" << std::endl; //³¯Â¥ Ãâ·Â
 	}
 	else {
-		std::cout << "D-" << leftday << std::endl; //ë‚ ì§œ ì¶œë ¥
+		std::cout << "D-" << leftday << std::endl; //³¯Â¥ Ãâ·Â
 	}
-	std::cout << "ë‹¹ì‹ ì˜ í˜„ì¬ Levelì€ " << _person.getlevel() << "ì…ë‹ˆë‹¤." << std::endl; //ë ˆë²¨ ì¶œë ¥
+	std::cout << "´ç½ÅÀÇ ÇöÀç LevelÀº " << _person.getlevel() << "ÀÔ´Ï´Ù." << std::endl; //·¹º§ Ãâ·Â
 }
 
 void Test::TodayResult(Subject& _sub, Person& _person) {
-	int leftday = _person.getleftday(); //ë‚¨ì€ ë‚ ì§œ
-	float achievement = _sub.GetAchievement(); //ì„±ì·¨ë„
-	std::string name = _sub.GetSubName(); //ê³¼ëª©ëª…
-	std::cout << name << " ê³¼ëª©ì—ì„œ ë‹¹ì‹ ì˜ ì„±ì·¨ë„ëŠ” " << achievement << "ì…ë‹ˆë‹¤." << std::endl; //ì„±ì·¨ë„ ì¶œë ¥
-	if (leftday == 0) { //ê¸°ë§ê³ ì‚¬ ì „ë‚ ì¼ ë•Œ
-		std::string ExpGrad; //ì˜ˆìƒ í•™ì 
-		float ExpScore = 10 * achievement; //ì˜ˆìƒ ì ìˆ˜, ì•„ë˜ ì¡°ê±´ë¬¸ë“¤ì„ í†µí•´ í•™ì ìœ¼ë¡œ ë³€í™˜, ì›ë˜ ì‹ì€ 100*_sub.GetAchievement()/10
+	int leftday = _person.getleftday(); //³²Àº ³¯Â¥
+	float achievement = _sub.GetAchievement(); //¼ºÃëµµ
+	std::string name = _sub.GetSubName(); //°ú¸ñ¸í
+	std::cout << name << " °ú¸ñ¿¡¼­ ´ç½ÅÀÇ ¼ºÃëµµ´Â " << achievement << "ÀÔ´Ï´Ù." << std::endl; //¼ºÃëµµ Ãâ·Â
+	if (leftday == 0) { //±â¸»°í»ç Àü³¯ÀÏ ¶§
+		std::string ExpGrad; //¿¹»ó ÇĞÁ¡
+		float ExpScore = 10 * achievement; //¿¹»ó Á¡¼ö, ¾Æ·¡ Á¶°Ç¹®µéÀ» ÅëÇØ ÇĞÁ¡À¸·Î º¯È¯, ¿ø·¡ ½ÄÀº 100*_sub.GetAchievement()/10
 		if (ExpScore >= 97) { ExpGrad = "A+"; }
 		else if (97 > ExpScore && ExpScore >= 94) { ExpGrad = "A0"; }
 		else if (94 > ExpScore && ExpScore >= 90) { ExpGrad = "A-"; }
@@ -33,32 +38,33 @@ void Test::TodayResult(Subject& _sub, Person& _person) {
 		else if (64 > ExpScore && ExpScore >= 60) { ExpGrad = "D-"; }
 		else { ExpGrad = "F"; }
 
-		//std::cout << name << " ê³¼ëª©ì—ì„œ ë‹¹ì‹ ì˜ ì„±ì·¨ë„ëŠ” " << achievement << "ì…ë‹ˆë‹¤." << std::endl; //ì„±ì·¨ë„ ì¶œë ¥
-		std::cout << name << " ì‹œí—˜ì˜ ì˜ˆìƒë˜ëŠ” í•™ì ì€ " << ExpGrad << "ì…ë‹ˆë‹¤." << std::endl; // ì˜ˆìƒ í•™ì  ì¶œë ¥
+		//std::cout << name << " °ú¸ñ¿¡¼­ ´ç½ÅÀÇ ¼ºÃëµµ´Â " << achievement << "ÀÔ´Ï´Ù." << std::endl; //¼ºÃëµµ Ãâ·Â
+		std::cout << name << " ½ÃÇèÀÇ ¿¹»óµÇ´Â ÇĞÁ¡Àº " << ExpGrad << "ÀÔ´Ï´Ù." << std::endl; // ¿¹»ó ÇĞÁ¡ Ãâ·Â
 	}
 	//else {
-	//	std::cout << name << " ê³¼ëª©ì—ì„œ ë‹¹ì‹ ì˜ ì„±ì·¨ë„ëŠ” " << achievement << "ì…ë‹ˆë‹¤." << std::endl; //ì„±ì·¨ë„ ì¶œë ¥
+	//	std::cout << name << " °ú¸ñ¿¡¼­ ´ç½ÅÀÇ ¼ºÃëµµ´Â " << achievement << "ÀÔ´Ï´Ù." << std::endl; //¼ºÃëµµ Ãâ·Â
 	//}
 }
 
+
 void Test::AfterTest(Subject& _sub, int score) {
-	float achievement = _sub.GetAchievement(); //ì„±ì·¨ë„
-	std::string name = _sub.GetSubName(); //ê³¼ëª©ëª…
-	float ExpScore = 10 * achievement; // ì„±ì·¨ë„ ê¸°ë°˜ ì˜ˆìƒ ì ìˆ˜
-	if (score < ExpScore && (ExpScore - score) / score > 0.3) { //ì„±ì·¨ë„ > ì‹œí—˜ ì ìˆ˜ && ì˜¤ì°¨ê°€ ì¼ì • ì´ìƒì¼ ë•Œ(ì„ì˜ë¡œ 30%ë¡œ ì„¤ì •) =>ë³¸ì¸ì˜ ê³¼ëŒ€í‰ê°€
-		std::cout << "ì§ì ‘ ì…ë ¥í•´ì£¼ì‹  íš¨ìœ¨ë¡œ ê³„ì‚°ëœ ì„±ì·¨ë„ " << ExpScore << "ì— ë¹„í•´ ê²¨ìš° " << score << "ë§Œí¼ë§Œ ì ìˆ˜ë¥¼ ë°›ìœ¼ì…¨êµ°ìš”." << std::endl;
-		std::cout << name << " ê³¼ëª©ì— ëŒ€í•´ ë‹¹ì‹ ì€ ë‹¹ì‹  ìŠ¤ìŠ¤ë¡œë¥¼ ê³¼ëŒ€í‰ê°€í•˜ê³  ìˆêµ°ìš”!" << std::endl;
-		std::cout << "ë³¸ì¸ì˜ ìˆ˜ì¤€ì„ ê¹¨ë‹«ê³ , ë³´ë‹¤ í˜„ì‹¤ì ì¸ ëª©í‘œë¥¼ ì¡ì•„ë³´ì„¸ìš”!" << std::endl;
+	float achievement = _sub.GetAchievement(); //¼ºÃëµµ
+	std::string name = _sub.GetSubName(); //°ú¸ñ¸í
+	float ExpScore = 10 * achievement; // ¼ºÃëµµ ±â¹İ ¿¹»ó Á¡¼ö
+	if (score < ExpScore && (ExpScore - score) / score > 0.3) { //¼ºÃëµµ > ½ÃÇè Á¡¼ö && ¿ÀÂ÷°¡ ÀÏÁ¤ ÀÌ»óÀÏ ¶§(ÀÓÀÇ·Î 30%·Î ¼³Á¤) =>º»ÀÎÀÇ °ú´ëÆò°¡
+		std::cout << "Á÷Á¢ ÀÔ·ÂÇØÁÖ½Å È¿À²·Î °è»êµÈ ¼ºÃëµµ " << ExpScore << "¿¡ ºñÇØ °Ü¿ì " << score << "¸¸Å­¸¸ Á¡¼ö¸¦ ¹ŞÀ¸¼Ì±º¿ä." << std::endl;
+		std::cout << name << " °ú¸ñ¿¡ ´ëÇØ ´ç½ÅÀº ´ç½Å ½º½º·Î¸¦ °ú´ëÆò°¡ÇÏ°í ÀÖ±º¿ä!" << std::endl;
+		std::cout << "º»ÀÎÀÇ ¼öÁØÀ» ±ú´İ°í, º¸´Ù Çö½ÇÀûÀÎ ¸ñÇ¥¸¦ Àâ¾Æº¸¼¼¿ä!" << std::endl;
 	}
-	else if (score > ExpScore && (score - ExpScore) / score > 0.3) { //ì„±ì·¨ë„ < ì‹œí—˜ ì ìˆ˜ && ì˜¤ì°¨ê°€ ì¼ì • ì´ìƒì¼ ë•Œ(ì„ì˜ë¡œ 30%ë¡œ ì„¤ì •) =>ë³¸ì¸ì˜ ê³¼ì†Œí‰ê°€
-		std::cout << "ì§ì ‘ ì…ë ¥í•´ì£¼ì‹  íš¨ìœ¨ë¡œ ê³„ì‚°ëœ ì„±ì·¨ë„ " << ExpScore << "ì— ë¹„í•´ ë¬´ë ¤ " << score << "ë§Œí¼ì´ë‚˜ ì ìˆ˜ë¥¼ ë°›ìœ¼ì…¨êµ°ìš”." << std::endl;
-		std::cout << name << " ê³¼ëª©ì— ëŒ€í•´ ë‹¹ì‹ ì€ ë‹¹ì‹  ìŠ¤ìŠ¤ë¡œë¥¼ ê³¼ì†Œí‰ê°€í•˜ê³  ìˆêµ°ìš”!" << std::endl;
-		std::cout << "ìì‹ ê°ì„ ê°–ê³ , ë³´ë‹¤ ë†’ì€ ëª©í‘œë¥¼ ì¡ì•„ë³´ì„¸ìš”!" << std::endl;
+	else if (score > ExpScore && (score - ExpScore) / score > 0.3) { //¼ºÃëµµ < ½ÃÇè Á¡¼ö && ¿ÀÂ÷°¡ ÀÏÁ¤ ÀÌ»óÀÏ ¶§(ÀÓÀÇ·Î 30%·Î ¼³Á¤) =>º»ÀÎÀÇ °ú¼ÒÆò°¡
+		std::cout << "Á÷Á¢ ÀÔ·ÂÇØÁÖ½Å È¿À²·Î °è»êµÈ ¼ºÃëµµ " << ExpScore << "¿¡ ºñÇØ ¹«·Á " << score << "¸¸Å­ÀÌ³ª Á¡¼ö¸¦ ¹ŞÀ¸¼Ì±º¿ä." << std::endl;
+		std::cout << name << " °ú¸ñ¿¡ ´ëÇØ ´ç½ÅÀº ´ç½Å ½º½º·Î¸¦ °ú¼ÒÆò°¡ÇÏ°í ÀÖ±º¿ä!" << std::endl;
+		std::cout << "ÀÚ½Å°¨À» °®°í, º¸´Ù ³ôÀº ¸ñÇ¥¸¦ Àâ¾Æº¸¼¼¿ä!" << std::endl;
 	}
-	else { //ë„ˆ ìŠ¤ìŠ¤ë¡œë¥¼ ì•Œë¼ ì‹¤ì²œ ì˜í•œ ì‚¬ëŒ
-		std::cout << "ì§ì ‘ ì…ë ¥í•´ì£¼ì‹  íš¨ìœ¨ë¡œ ê³„ì‚°ëœ ì„±ì·¨ë„ " << ExpScore << "ì™€ ë¹„ìŠ·í•œ " << score << "ì˜ ì ìˆ˜ë¥¼ ë°›ìœ¼ì…¨êµ°ìš”." << std::endl;
-		std::cout << name << " ê³¼ëª©ì— ëŒ€í•´ ì„±ì·¨ë„ì— ë§ëŠ” ì ìˆ˜ë¥¼ ì–»ìœ¼ì…¨êµ°ìš”!" << std::endl;
-		std::cout << "ìŠ¤ìŠ¤ë¡œì˜ ëŠ¥ë ¥ì„ ì˜ ì•„ëŠ” ê²ƒ ì—­ì‹œ ì•„ì£¼ ì¢‹ìŠµë‹ˆë‹¤! ì´ ìì„¸ë¥¼ ìœ ì§€í•˜ê³  ì—´ì‹¬íˆ ë…¸ë ¥í•˜ì„¸ìš”!" << std::endl;
+	else { //³Ê ½º½º·Î¸¦ ¾Ë¶ó ½ÇÃµ ÀßÇÑ »ç¶÷
+		std::cout << "Á÷Á¢ ÀÔ·ÂÇØÁÖ½Å È¿À²·Î °è»êµÈ ¼ºÃëµµ " << ExpScore << "¿Í ºñ½ÁÇÑ " << score << "ÀÇ Á¡¼ö¸¦ ¹ŞÀ¸¼Ì±º¿ä." << std::endl;
+		std::cout << name << " °ú¸ñ¿¡ ´ëÇØ ¼ºÃëµµ¿¡ ¸Â´Â Á¡¼ö¸¦ ¾òÀ¸¼Ì±º¿ä!" << std::endl;
+		std::cout << "½º½º·ÎÀÇ ´É·ÂÀ» Àß ¾Æ´Â °Í ¿ª½Ã ¾ÆÁÖ ÁÁ½À´Ï´Ù! ÀÌ ÀÚ¼¼¸¦ À¯ÁöÇÏ°í ¿­½ÉÈ÷ ³ë·ÂÇÏ¼¼¿ä!" << std::endl;
 	}
 	std::cout << "----------------------------------------------------------------------------------" << std::endl;
 }

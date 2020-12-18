@@ -7,22 +7,28 @@ void letsstart() {
 	Test test;
 	int a = 0;
 
-	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl;
-	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
-	std::cout << "¢Ã  Hello. I'm personal Study Planner. I'll help you with your study.           ¢Ã" << std::endl;
-	std::cout << "¢Ã  Good Luck!                                                                  ¢Ã" << std::endl;
-	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
-	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl << std::endl;;
+	std::cout << "�ââââââââââââââââââââââââââââââââââââââââ�" << std::endl;
+	std::cout << "��                                                                              ��" << std::endl;
+	std::cout << "��  Hello. I'm personal Study Planner. I'll help you with your study.           ��" << std::endl;
+	std::cout << "��  Good Luck!                                                                  ��" << std::endl;
+	std::cout << "��                                                                              ��" << std::endl;
+	std::cout << "�ââââââââââââââââââââââââââââââââââââââââ�" << std::endl << std::endl;;
 
 	// get the leftday 
-	std::cout << "How many days are left?  ";
-	std::cin >> a;
-	std::cout << std::endl;
-	while (a <= 0) {
-		std::cout << "please enter again (It should be more than 0 days) : ";
-		std::cin >> a;
-		std::cout << std::endl;
+	while (true) {
+		try {
+			std::cout << "How many days are left?  ";
+			std::cin >> a;
+			if (std::cin.fail() || a<=0) throw a;
+			break;
+		}
+		catch (int i) {
+			std::cout << "ERROR please enter again (It should be more than 0 days)" << std::endl << std::endl;
+			std::cin.clear();
+			std::cin.ignore(256, '\n');
+		}
 	}
+	std::cout << std::endl;
 
 	// make planner
 	Person tester = Person::instance(a);
@@ -87,7 +93,6 @@ void letsstart() {
 			}
 			std::cout << "----------------------------------------------------------------------------------" << std::endl;
 		}
-		std::cout << "Next Day" << std::endl;
 	}
 
 

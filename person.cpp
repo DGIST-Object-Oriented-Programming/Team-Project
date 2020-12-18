@@ -37,13 +37,35 @@ void Person::setdaylist() {
 
 
 Person::Person(int a) {
-	std::cout << "Enter your name : "; // 이름
-	std::cin >> name;
+	while (true) {
+		try {
+			std::cout << "Enter your name : "; // 이름
+			std::cin >> name;
+			if (std::cin.fail()) throw name;
+			break;
+		}
+		catch (std::string str) {
+			std::cout << "ERROR please enter again (It should be string)" << std::endl << std::endl;
+			std::cin.clear();
+			std::cin.ignore(256, '\n');
+		}
+	}
 	std::cout << std::endl;
-	std::cout << "Enter your Student Number : "; // 학번
-	std::cin >> personID;
+	while (true) {
+		try {
+			std::cout << "Enter your Student Number : "; // 학번
+			std::cin >> personID;
+			if (std::cin.fail() || personID < 0) throw personID;
+			break;
+		}
+		catch (int i) {
+			std::cout << "ERROR please enter again (It should be number)" << std::endl << std::endl;
+			std::cin.clear();
+			std::cin.ignore(256, '\n');
+		}
+	}
 	std::cout << std::endl;
-	std::cout << "Hello " << name << "!, your current level is " << level << "." << std::endl<<std::endl;
+	std::cout << "Hello " << name << "!, your current level is " << level << "." << std::endl << std::endl;
 	leftday = a; // 남은 요일
 	setdaylist(); 
 }

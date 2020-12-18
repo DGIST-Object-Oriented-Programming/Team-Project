@@ -18,4 +18,5 @@ public:
 	void AfterTest(Subject& _sub, int score);
 };
 
+
 #endif // !TEST
