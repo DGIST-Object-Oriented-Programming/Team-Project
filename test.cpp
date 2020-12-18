@@ -4,12 +4,11 @@ void Test::DayNum(Person& _person) {
 	int leftday = _person.getleftday(); //남은 날짜
 	if (leftday == 0) { //기말고사 전날일 때
 		std::cout << "D-" << leftday << ". 내일이 기말고사입니다!" << std::endl; //날짜 출력
-		std::cout << "당신의 현재 Level은 " << _person.getlevel() << "입니다." << std::endl; //레벨 출력
 	}
 	else {
 		std::cout << "D-" << leftday << std::endl; //날짜 출력
-		std::cout << "당신의 현재 Level은 " << _person.getlevel() << "입니다." << std::endl; //레벨 출력
 	}
+	std::cout << "당신의 현재 Level은 " << _person.getlevel() << "입니다." << std::endl; //레벨 출력
 }
 
 void Test::TodayResult(Subject& _sub, Person& _person) {
