@@ -8,14 +8,19 @@
 
 class Person;
 
-class Test {
-public:
+class Test final {
+private:
 	Test() {};
-	~Test() {};
+public:
+	static Test& instance() {
+		static Test* instance = new Test();
+		return *instance;
+	}
+	virtual ~Test() {};
 
-	void DayNum(Person& _person);
-	void TodayResult(Subject& _sub, Person& _person);
-	void AfterTest(Subject& _sub, int score);
+	void DayNum(Person&);
+	void TodayResult(Subject&, Person&);
+	void AfterTest(Subject&, int);
 };
 
 

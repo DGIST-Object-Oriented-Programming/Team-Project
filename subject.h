@@ -28,8 +28,8 @@ public:
 	virtual  ~Subject();
 
 	float GetEff() { return eff; } //효율에 접근하기 위해서 쓰는 함수
-	void SetEff(float _eff); //효율을 임의의 값으로 설정
-	float TemEff(int _level, float _Study, int _Sleep); // 레벨,  공부시간, 수면시간을 입력받아서 효율을 계산해서 리턴해줌. Subject의 효율은 변하지 않음. 
+	void SetEff(float); //효율을 임의의 값으로 설정
+	float TemEff(int, float, int); // 레벨,  공부시간, 수면시간을 입력받아서 효율을 계산해서 리턴해줌. Subject의 효율은 변하지 않음. 
 
 	void SetSub(std::string); // 과목명 변경 함수
 	std::string GetSubName() { return subject; }

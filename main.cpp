@@ -4,7 +4,7 @@
 #include "subject.h"
 
 void letsstart() {
-	Test test;
+	Test test = Test::instance();
 	int a = 0;
 
 	std::cout << "�ââââââââââââââââââââââââââââââââââââââââ�" << std::endl;
@@ -22,7 +22,7 @@ void letsstart() {
 			if (std::cin.fail() || a<=0) throw a;
 			break;
 		}
-		catch (int i) {
+		catch (int) {
 			std::cout << "ERROR please enter again (It should be more than 0 days)" << std::endl << std::endl;
 			std::cin.clear();
 			std::cin.ignore(256, '\n');

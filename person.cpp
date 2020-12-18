@@ -3,7 +3,8 @@
 #include <iostream>
 
 void Person::setdaylist() {
-	std::cout << "How many subjects do u have? : "; std::cin >> subject_num; std::cout << std::endl;
+	std::cout << "How many subjects do u have? : "; 
+	std::cin >> subject_num; std::cout << std::endl;
 
 	// 과목 저장
 	subjects = new Subject[subject_num];
@@ -75,13 +76,6 @@ Person& Person::instance(int a) {
 	static Person* instance = new Person(a);
 	return *instance;
 }
-
-Person& Person::instance() {
-	static Person* instance = new Person(14);
-	return *instance;
-}
-
-
 
 
 Person::~Person() {
