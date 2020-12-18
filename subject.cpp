@@ -35,11 +35,11 @@ void Subject::SetEff(float _eff) {//효율을 _eff로 변경
 //v를 하한 lo, 상한 hi에 맞춰서 clamp해주는 함수
 float clamp(const float& v, const float& lo, const float& hi) { return (v < lo) ? lo : (hi < v) ? hi : v; }
 
-float Subject::TemEff(int _level, float _Study, float _Sleep) {//레벨,  공부시간, 수면시간을 입력받아서 효율을 계산해서 리턴해줌. Subject의 효율은 변하지 않음.
+float Subject::TemEff(int _level, float _Study, int _Sleep) {//레벨,  공부시간, 수면시간을 입력받아서 효율을 계산해서 리턴해줌. Subject의 효율은 변하지 않음.
 	float Eff = eff;
-	Eff += clamp(((float)_level / 128) * 0.1, 0, 0.1); // level에 따른 효율(0 ~ 128 -> 0 ~ 0.1)
-	Eff += clamp((_Study / 8) * 0.05, 0, 0.05); // 공부시간에 따른 효율(0 ~ 8 -> 0 ~ 0.05)
-	Eff += clamp((_Sleep - 6) / 4 * 0.05, -0.05, 0.05); //수면시간에 따른 효율(2 ~ 10 -> -0.05 ~ 0.05)
+	Eff += clamp(((float)_level / 128) * 0.1f, 0.0f, 0.1f); // level에 따른 효율(0 ~ 128 -> 0 ~ 0.1)
+	Eff += clamp((_Study / 8) * 0.05f, 0.0f, 0.05f); // 공부시간에 따른 효율(0 ~ 8 -> 0 ~ 0.05)
+	Eff += clamp((_Sleep - 6) / 4 * 0.05f, -0.05f, 0.05f); //수면시간에 따른 효율(2 ~ 10 -> -0.05 ~ 0.05)
 	//Eff += _Sleep;
 	return Eff;
 }

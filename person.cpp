@@ -11,7 +11,7 @@ void Person::setdaylist() {
 	std::string subs_name;
 	float subs_eff;
 
-	std::cout << "----------------------------------------------------------------------------------" << std::endl;
+	std::cout << "----------------------------------------------------------------------------------" << std::endl << std::endl;
 	std::cout << "please give me Subject's information" << std::endl<<std::endl;
 	for (int i = 0; i < subject_num; i++) {
 		std::cout << "Enter your Subject name : "; std::cin >> subs_name; std::cout << std::endl;
@@ -49,22 +49,29 @@ Person::Person(int a) {
 }
 
 
+Person& Person::instance(int a) {
+	static Person* instance = new Person(a);
+	return *instance;
+}
+
+Person& Person::instance() {
+	static Person* instance = new Person(14);
+	return *instance;
+}
+
+
+
 
 Person::~Person() {
 	delete[] subjects;
+	std::cout << std::endl;
 	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl;
 	std::cout << "▣                                                                              ▣" << std::endl;
 	std::cout << "▣  Thank you for using our program. Bye                                        ▣" << std::endl;
 	std::cout << "▣  Good Luck!                                                                  ▣" << std::endl;
 	std::cout << "▣                                                                              ▣" << std::endl;
 	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl << std::endl;;
-
 }
 
 
-// 변수 가져오기
-int Person::getID() { return personID; }
-int Person::getlevel() { return level; }
-int Person::getleftday() { return leftday; }
-float Person::getsleep_eff() { return sleep_eff; }
-std::string Person::getname() { return name; }
+
