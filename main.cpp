@@ -15,7 +15,7 @@ void letsstart() {
 			if (std::cin.fail() || a<=0) throw a;
 			break;
 		}
-		catch (int) {
+		catch (int i) {
 			std::cout << "ERROR please enter again (It should be more than 0 days)" << std::endl << std::endl;
 			std::cin.clear();
 			std::cin.ignore(256, '\n');
@@ -38,7 +38,6 @@ void letsstart() {
 		for (sub_many; sub_many > 0; sub_many--) {
 			// choose subject
 			std::cout << "Which subject will you study? select your subject number!" << std::endl;
-
 			for (int i = 0; i < tester.subject_num; i++) {
 				std::cout << i << "." << tester.subjects[i].GetSubName() << std::endl;
 			}
@@ -55,12 +54,8 @@ void letsstart() {
 				std::cout << std::endl;
 			} while (study_time > 8 || study_time < 0);
 
-			if (study_time == 0) {
-				day.Study(tester.subjects[sub_num], tester);
-			}
-			else {
-				day.Study(study_time, tester.subjects[sub_num], tester);
-			}
+			if (study_time == 0) { day.Study(tester.subjects[sub_num], tester); }
+			else { day.Study(study_time, tester.subjects[sub_num], tester); }
 		}
 
 		// give sleep hour of day
@@ -74,23 +69,32 @@ void letsstart() {
 
 		// do you want to see result of day?
 		int tmp;
-		std::cout << "----------------------------------------------------------------------------------" << std::endl;
-		std::cout << "Its end of the day! Do you want to see result, today? " << std::endl;
-		std::cout << "1. yes  2. no " << std::endl;
-		std::cin >> tmp;
-		std::cout << std::endl;
-		if (tmp == 1) {
+		if (tester.getleftday() == 0) {
 			test.DayNum(tester);
 			for (int i = 0; i < tester.subject_num; i++) {
 				test.TodayResult(tester.subjects[i], tester);
 			}
 			std::cout << "----------------------------------------------------------------------------------" << std::endl;
 		}
+		else {
+			std::cout << "----------------------------------------------------------------------------------" << std::endl;
+			std::cout << "Its end of the day! Do you want to see result, today? " << std::endl;
+			std::cout << "1. yes  2. no " << std::endl;
+			std::cin >> tmp;
+			std::cout << std::endl;
+			if (tmp == 1) {
+				test.DayNum(tester);
+				for (int i = 0; i < tester.subject_num; i++) {
+					test.TodayResult(tester.subjects[i], tester);
+				}
+				std::cout << "----------------------------------------------------------------------------------" << std::endl;
+			}
+		}
 	}
 
 
 	int p;
-	std::cout << "Next Day after the exam" << std::endl;
+	std::cout << "Next Day after the exam. ";
 	std::cout << "Do you want to do Aftertest? " << std::endl;
 	std::cout << "(please enter 1 if you want to do or 2 if you don't want)" << std::endl;
 	std::cin >> p; std::cout << std::endl;
@@ -110,19 +114,18 @@ void letsstart() {
 		std::cout << "Skip the after test." << std::endl;
 	}
 	std::cout << "----------------------------------------------------------------------------------" << std::endl;
-
 }
 
 
 int main() {
-	
-	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl;
-	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
-	std::cout << "¢Ã  Hello. I'm personal Study Planner. I'll help you with your study.           ¢Ã" << std::endl;
-	std::cout << "¢Ã  Good Luck!                                                                  ¢Ã" << std::endl;
-	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
-	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl << std::endl;;
-	
+
+	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl;
+	std::cout << "▣                                                                              ▣" << std::endl;
+	std::cout << "▣  Hello. I'm personal Study Planner. I'll help you with your study.           ▣" << std::endl;
+	std::cout << "▣  Good Luck!                                                                  ▣" << std::endl;
+	std::cout << "▣                                                                              ▣" << std::endl;
+	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl << std::endl;;
+
 	letsstart();
 	
 	std::cout << std::endl;
@@ -133,4 +136,5 @@ int main() {
 	std::cout << "▣                                                                              ▣" << std::endl;
 	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl << std::endl;;
 	return  0;
+
 }
