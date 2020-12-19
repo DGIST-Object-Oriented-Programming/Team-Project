@@ -124,7 +124,7 @@ int main() {
 	std::cout << "▣  Hello. I'm personal Study Planner. I'll help you with your study.           ▣" << std::endl;
 	std::cout << "▣  Good Luck!                                                                  ▣" << std::endl;
 	std::cout << "▣                                                                              ▣" << std::endl;
-	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl << std::endl;;
+	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl << std::endl;
 
 	letsstart();
 	
@@ -134,7 +134,7 @@ int main() {
 	std::cout << "▣  Thank you for using our program. Bye                                        ▣" << std::endl;
 	std::cout << "▣  Good Luck!                                                                  ▣" << std::endl;
 	std::cout << "▣                                                                              ▣" << std::endl;
-	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl << std::endl;;
+	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl << std::endl;
 	return  0;
 
 }
