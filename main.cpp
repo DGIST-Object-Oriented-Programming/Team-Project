@@ -7,13 +7,6 @@ void letsstart() {
 	Test test = Test::instance();
 	int a = 0;
 
-	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl;
-	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
-	std::cout << "¢Ã  Hello. I'm personal Study Planner. I'll help you with your study.           ¢Ã" << std::endl;
-	std::cout << "¢Ã  Good Luck!                                                                  ¢Ã" << std::endl;
-	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
-	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl << std::endl;;
-
 	// get the leftday 
 	while (true) {
 		try {
@@ -117,6 +110,21 @@ void letsstart() {
 		std::cout << "Skip the after test." << std::endl;
 	}
 	std::cout << "----------------------------------------------------------------------------------" << std::endl;
+
+}
+
+
+int main() {
+	
+	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl;
+	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
+	std::cout << "¢Ã  Hello. I'm personal Study Planner. I'll help you with your study.           ¢Ã" << std::endl;
+	std::cout << "¢Ã  Good Luck!                                                                  ¢Ã" << std::endl;
+	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
+	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl << std::endl;;
+	
+	letsstart();
+	
 	std::cout << std::endl;
 	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl;
 	std::cout << "▣                                                                              ▣" << std::endl;
@@ -124,10 +132,5 @@ void letsstart() {
 	std::cout << "▣  Good Luck!                                                                  ▣" << std::endl;
 	std::cout << "▣                                                                              ▣" << std::endl;
 	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl << std::endl;;
-}
-
-
-int main() {
-	letsstart();
 	return  0;
 }
