@@ -77,11 +77,6 @@ Person& Person::instance(int a) {
 	return *instance;
 }
 
-Person& Person::instance() {
-	static Person* instance = new Person(14);
-	return *instance;
-}
-
 Person::~Person() {
 	delete[] subjects;
 	std::cout << std::endl;
