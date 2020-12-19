@@ -7,12 +7,12 @@ void letsstart() {
 	Test test = Test::instance();
 	int a = 0;
 
-	std::cout << "�ââââââââââââââââââââââââââââââââââââââââ�" << std::endl;
-	std::cout << "��                                                                              ��" << std::endl;
-	std::cout << "��  Hello. I'm personal Study Planner. I'll help you with your study.           ��" << std::endl;
-	std::cout << "��  Good Luck!                                                                  ��" << std::endl;
-	std::cout << "��                                                                              ��" << std::endl;
-	std::cout << "�ââââââââââââââââââââââââââââââââââââââââ�" << std::endl << std::endl;;
+	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl;
+	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
+	std::cout << "¢Ã  Hello. I'm personal Study Planner. I'll help you with your study.           ¢Ã" << std::endl;
+	std::cout << "¢Ã  Good Luck!                                                                  ¢Ã" << std::endl;
+	std::cout << "¢Ã                                                                              ¢Ã" << std::endl;
+	std::cout << "¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã¢Ã" << std::endl << std::endl;;
 
 	// get the leftday 
 	while (true) {
@@ -117,6 +117,13 @@ void letsstart() {
 		std::cout << "Skip the after test." << std::endl;
 	}
 	std::cout << "----------------------------------------------------------------------------------" << std::endl;
+	std::cout << std::endl;
+	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl;
+	std::cout << "▣                                                                              ▣" << std::endl;
+	std::cout << "▣  Thank you for using our program. Bye                                        ▣" << std::endl;
+	std::cout << "▣  Good Luck!                                                                  ▣" << std::endl;
+	std::cout << "▣                                                                              ▣" << std::endl;
+	std::cout << "▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣▣" << std::endl << std::endl;;
 }
 
 
