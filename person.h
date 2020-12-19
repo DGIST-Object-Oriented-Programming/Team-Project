@@ -5,17 +5,17 @@
 
 #ifndef PERSON
 #define PERSON
-class personalID {
+class PersonalID {
 protected:
-	std::string name = ""; // Âü¿©ÀÚ ÀÌ¸§
-	int personID = 0;  // Âü¿©ÀÚ ÇĞ¹ø
-	int level = 0;  // Âü¿©ÀÚÀÇ ·¹º§
-	int leftday = 0; // ³²Àº ¿äÀÏ
-	float sleep_eff = 0; // Âü¿©ÀÚÀÇ ¼ö¸éÈ¿À²?
-	float total_achive = 0;//ÃÑ ¼ºÃëµµ ÇÕ ÀúÀå
+	std::string name = ""; // ì°¸ì—¬ì ì´ë¦„
+	int personID = 0;  // ì°¸ì—¬ì í•™ë²ˆ
+	int level = 0;  // ì°¸ì—¬ìì˜ ë ˆë²¨
+	int leftday = 0; // ë‚¨ì€ ìš”ì¼
+	float sleep_eff = 0; // ì°¸ì—¬ìì˜ ìˆ˜ë©´íš¨ìœ¨?
+	float total_achive = 0;//ì´ ì„±ì·¨ë„ í•© ì €ì¥
 public:	
-	personalID() {};
-	virtual ~personalID() {};
+	PersonalID() {};
+	virtual ~PersonalID() {};
 	virtual int getID() = 0;
 	virtual int getlevel() = 0;
 	virtual int getleftday() = 0;
@@ -24,9 +24,9 @@ public:
 	virtual float gettotal_achive() = 0;
 };
 
-class Person final : public personalID {
+class Person final : public PersonalID {
 private:
-	//singleton model, personÀº ´Ü ÇÑ¹ø ºÒ¸®±â ¶§¹®.
+	//singleton model, personì€ ë‹¨ í•œë²ˆ ë¶ˆë¦¬ê¸° ë•Œë¬¸.
 	Person(int);
 
 public:
@@ -38,7 +38,7 @@ public:
 	void changeSleepEff(float a) { sleep_eff = a; };
 
 	void setdaylist();
-	void changeTotalAchive(int a) { total_achive = total_achive + a; }//ÃÑ ¼ºÃëµµ °ª º¯°æ
+	void changeTotalAchive(int a) { total_achive = total_achive + a; }//ì´ ì„±ì·¨ë„ ê°’ ë³€ê²½
 
 	int getID() override { return personID; }
 	int getlevel() override { return level; }
